@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace BookingApp.Data.Entities

@@ -19,6 +19,18 @@ namespace BookingApp.Data.Seeds
                     Id = 2,
                     Name = "Topla voda",
                     Price = 84.23
+                },
+                new RoomService
+                {
+                    Id = 3,
+                    Name = "Parking",
+                    Price = 569.23
+                },
+                new RoomService
+                {
+                    Id = 4,
+                    Name = "Sat TV",
+                    Price = 0.23
                 }
             );
         }

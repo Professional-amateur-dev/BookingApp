@@ -5,7 +5,7 @@ namespace BookingApp.Data.Entities
 {
     public class AppUser : BaseEntity
     {
-         [Required]
+        [Required]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }

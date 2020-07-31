@@ -6,16 +6,16 @@ using BookingApp.Data.Entities;
 
 namespace BookingApp.Core.Repositories
 {
-    public interface IUserRepository : IRepository<AppUser> {
-        AppUser FindByEmail(string email);
+    public interface IUserRepository : IRepository<User> {
+        User FindByEmail(string email);
     }
 
     public class UserRepository : IUserRepository
     {
-        private readonly BookingAppContext context;
-        public UserRepository(BookingAppContext context) => this.context = context;
+        private readonly AplicationContext context;
+        public UserRepository(AplicationContext context) => this.context = context;
 
-        public AppUser Create(AppUser entity)
+        public User Create(User entity)
         {
             entity.Password = PasswordHelper.Hash(entity.Password);
             this.context.Users.Add(entity);
@@ -28,28 +28,28 @@ namespace BookingApp.Core.Repositories
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<AppUser> GetAll(string search)
+        public IEnumerable<User> GetAll(string search)
         {
             throw new System.NotImplementedException();
         }
 
-        public AppUser GetOne(long id)
+        public User GetOne(long id)
         {
             return this.context.Users
                 .Where(u => u.Id == id)
-                .First<AppUser>();
+                .First<User>();
         }
 
-        public AppUser Update(long id, AppUser entity)
+        public User Update(long id, User entity)
         {
             throw new System.NotImplementedException();
         }
 
-        public AppUser FindByEmail(string email)
+        public User FindByEmail(string email)
         {
             return this.context.Users
                 .Where(u => u.Email.Equals(email))
-                .First<AppUser>();
+                .First<User>();
         }
     }
 }

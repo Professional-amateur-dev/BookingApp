@@ -12,7 +12,7 @@ namespace BookingApp.Api.Helpers
     {
         public void OnAuthorization(AuthorizationFilterContext dontuse, HttpContext context)
         {
-            var user = (AppUser)context.Items["AppUser"];
+            var user = (User)context.Items["User"];
             if (user == null)
             {
                 // not logged in
@@ -26,7 +26,7 @@ namespace BookingApp.Api.Helpers
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var a = (AppUser)context.HttpContext.Items["AppUser"];
+            var a = (User)context.HttpContext.Items["User"];
             throw new NotImplementedException();
         }
     }

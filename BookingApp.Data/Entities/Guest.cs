@@ -33,6 +33,9 @@ namespace BookingApp.Data.Entities
         [MaxLength(100)]
         public string State { get; set; }  
 
+        public long UserId {get;set;}
+        public User User { get; set; }
+
         public ICollection<Booking> Bookings{get;set;}      
     }
 }

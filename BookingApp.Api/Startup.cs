@@ -41,7 +41,7 @@ namespace BookingApp.Api
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             /* database connection, used from appsettings */
-            services.AddDbContext<BookingAppContext>(options =>
+            services.AddDbContext<AplicationContext>(options =>
                 //options.UseSqlServer(Configuration["ConnectionStrings:Default"], x => x.MigrationsAssembly("BookingApp.Data"))
                 options.UseSqlServer(Configuration["ConnectionStrings:Default"])
             );

@@ -28,7 +28,7 @@ namespace BookingApp.Api.Controllers.Auth
             var token = this.authService.Login(request.Email, request.Password);
 
 
-            // var user = this.mapper.Map<AppUser>(request);
+            // var user = this.mapper.Map<User>(request);
             // user = this.authService.Register(user);
 
             // var response = new RegistrationResponse();

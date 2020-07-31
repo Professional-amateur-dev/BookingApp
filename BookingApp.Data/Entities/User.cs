@@ -4,19 +4,22 @@ using System.Text.Json.Serialization;
 
 namespace BookingApp.Data.Entities
 {
-    public class AppUser : BaseEntity
+    public class User : BaseEntity
     {
         [Required]
-        public string FirstName { get; set; }
-        [Required]
-        public string LastName { get; set; }
+        public string UserName { get; set; }
+
         [Required]
         public string Email { get; set; }
 
         [JsonIgnore]
         public string Password { get; set; }
 
-        public AppUser(string email, string hash)
+        ICollection<Guest> Guests{get;set;}
+
+        public User(){}
+
+        public User(string email, string hash)
         {
             this.Email = email;
             this.Password = hash;

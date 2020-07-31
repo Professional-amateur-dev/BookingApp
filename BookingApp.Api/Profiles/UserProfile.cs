@@ -8,7 +8,7 @@ namespace BookingApp.Api.Profiles
     {
         public UserProfile()
         {
-            CreateMap<RegistrationRequest, AppUser>().ReverseMap();
+            CreateMap<RegistrationRequest, User>().ReverseMap();
         }
     }
 }

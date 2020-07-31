@@ -14,9 +14,9 @@ namespace BookingApp.Core.Repositories
     }
     public class BookingStatusRepository : IBookingStatusRepository
     {
-        private readonly BookingAppContext context;
+        private readonly AplicationContext context;
 
-        public BookingStatusRepository(BookingAppContext context) => this.context = context;
+        public BookingStatusRepository(AplicationContext context) => this.context = context;
 
         
         public BookingStatus GetOne(long id)

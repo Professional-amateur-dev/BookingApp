@@ -5,9 +5,9 @@ using System;
 
 namespace BookingApp.Data.Database
 {
-    public class BookingAppContext : DbContext
+    public class AplicationContext : DbContext
     {
-        public BookingAppContext(DbContextOptions<BookingAppContext> options) : base(options) { }
+        public AplicationContext(DbContextOptions<AplicationContext> options) : base(options) { }
 
         public DbSet<RoomService> RoomServices { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
@@ -18,7 +18,7 @@ namespace BookingApp.Data.Database
         public DbSet<Guest> Guests { get; set; }
         public DbSet<BookingStatus> BookingStatuses { get; set; }
 
-        public DbSet<AppUser> Users { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

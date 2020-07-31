@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using BookingApp.Api.Helpers;
 using BookingApp.Core.Repositories;
 using BookingApp.Core.Services;
 
@@ -12,47 +14,33 @@ namespace BookingApp.Api.Middleware
 {
     public class JwtMiddleware
     {
-        private readonly RequestDelegate _next;
-        private readonly IUserRepository userRepository;
-        private readonly IAuthService authService;
+        private readonly RequestDelegate next;
 
-        public JwtMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
+        public JwtMiddleware(RequestDelegate next) => this.next = next;
 
         public async Task Invoke(
             HttpContext context,
             IAuthService authService,
-            IUserRepository userRespository
-        ){
+            IUserRepository userRepository,
+            IConfiguration configuration
+        ) {
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-            if (token != null)
-                attachUserToContext(context, userRespository, token);
-
-            await _next(context);
-        }
-
-        private void attachUserToContext(HttpContext context, IUserRepository userRespository, string token)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("kuhergkyegrjhgr5i75");
-            tokenHandler.ValidateToken(token, new TokenValidationParameters
+            if (token == null)
             {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
-                ClockSkew = TimeSpan.Zero
-            }, out SecurityToken validatedToken);
+                await next(context);
+            }
 
-            var jwtToken = (JwtSecurityToken)validatedToken;
-            var userId = long.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
-
-            // attach user to context on successful jwt validation
-            var user = userRepository.GetOne(userId);
-            context.Items.Add("AppUser", user);
+            JwtSecurityToken jwtToken;
+            try {
+                jwtToken = authService.GetValidToken(token);
+                var userId = long.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+                var user = userRepository.GetOne(userId);
+                context.Items["User"] = user;
+                await next(context);
+            } catch (Exception ex)
+            {
+                
+            }
         }
     }
 }

@@ -24,12 +24,10 @@ namespace BookingApp.Api.Controllers.Auth
         [HttpPost]
         public ActionResult<RegistrationResponse> Register(RegistrationRequest request)
         {
-            var user = this.mapper.Map<AppUser>(request);
+            var user = this.mapper.Map<User>(request);
             user = this.authService.Register(user);
 
-            var response = new RegistrationResponse();
-            response.User = user;
-            response.Token = "";
+            var response = new RegistrationResponse(user, "");
             return response;
         }
     }

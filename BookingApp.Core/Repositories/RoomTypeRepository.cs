@@ -15,9 +15,9 @@ namespace BookingApp.Core.Repositories
     }
     public class RoomTypeRepository : IRoomTypeRepository
     {
-        private readonly BookingAppContext context;
+        private readonly AplicationContext context;
 
-        public RoomTypeRepository(BookingAppContext context) => this.context = context;
+        public RoomTypeRepository(AplicationContext context) => this.context = context;
 
         
         public RoomType GetOne(long id)

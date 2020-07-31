@@ -15,9 +15,9 @@ namespace BookingApp.Core.Repositories
     }
     public class PaymentRepository : IPaymentRepository
     {
-        private readonly BookingAppContext context;
+        private readonly AplicationContext context;
 
-        public PaymentRepository(BookingAppContext context) => this.context = context;
+        public PaymentRepository(AplicationContext context) => this.context = context;
 
         
         public Payment GetOne(long id)

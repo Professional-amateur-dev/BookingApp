@@ -30,6 +30,7 @@ namespace BookingApp.Data.Database
             modelBuilder.SeedRoom();
             modelBuilder.SeedRoomService();
             modelBuilder.SeedRoomType();
+            modelBuilder.SeedUser();
         }
     }
 }

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using BookingApp.Core.Repositories;
-using BookingApp.Core.Services;
+using BookingApp.Api.Services;
 
 
 namespace BookingApp.Api.Extensions

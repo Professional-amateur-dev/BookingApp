@@ -9,12 +9,13 @@ using Microsoft.IdentityModel.Tokens;
 using BookingApp.Core.Helpers;
 using BookingApp.Core.Repositories;
 using BookingApp.Data.Entities;
+using BookingApp.Data.Models;
 
-namespace BookingApp.Core.Services
+namespace BookingApp.Api.Services
 {
     public interface IAuthService
     {
-        User Register(User user);
+        UserDetail Register(User user);
         string Login(string email, string password);
         JwtSecurityToken GetValidToken(string token);
     }
@@ -35,10 +36,16 @@ namespace BookingApp.Core.Services
             this.configuration = configuration;
         }
 
-        public User Register(User user)
+        public UserDetail Register(User user)
         {
-            this.userRepository.Create(user);
-            return user;
+            user.Password = PasswordHelper.Hash(user.Password);
+
+            /* create user and convert to UserDetail */
+            var userDetail = this.mapper.Map<UserDetail>(
+                this.userRepository.Create(user)
+            );
+
+            return userDetail;
         }
 
         public string Login(string email, string password)

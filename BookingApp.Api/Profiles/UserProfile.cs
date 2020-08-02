@@ -1,6 +1,7 @@
 using AutoMapper;
 using BookingApp.Api.Requests;
 using BookingApp.Data.Entities;
+using BookingApp.Data.Models;
 
 namespace BookingApp.Api.Profiles
 {
@@ -9,6 +10,7 @@ namespace BookingApp.Api.Profiles
         public UserProfile()
         {
             CreateMap<RegistrationRequest, User>().ReverseMap();
+            CreateMap<UserDetail, User>().ReverseMap();
         }
     }
 }

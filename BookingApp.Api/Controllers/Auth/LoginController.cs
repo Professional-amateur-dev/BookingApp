@@ -3,7 +3,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using BookingApp.Api.Requests;
 using BookingApp.Api.Responses;
-using BookingApp.Core.Services;
+using BookingApp.Api.Services;
 using BookingApp.Data.Entities;
 
 namespace BookingApp.Api.Controllers.Auth
@@ -26,14 +26,6 @@ namespace BookingApp.Api.Controllers.Auth
         public ActionResult<string> Login(LoginRequest request)
         {
             var token = this.authService.Login(request.Email, request.Password);
-
-
-            // var user = this.mapper.Map<User>(request);
-            // user = this.authService.Register(user);
-
-            // var response = new RegistrationResponse();
-            // response.User = user;
-            // response.Token = "";
             return token;
         }
     }

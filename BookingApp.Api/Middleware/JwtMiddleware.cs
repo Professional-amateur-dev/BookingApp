@@ -8,11 +8,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using BookingApp.Api.Helpers;
 using BookingApp.Core.Repositories;
-using BookingApp.Core.Services;
+using BookingApp.Api.Services;
 
 namespace BookingApp.Api.Middleware
 {
-    public class JwtMiddleware
+   public class JwtMiddleware
     {
         private readonly RequestDelegate next;
 
@@ -39,7 +39,7 @@ namespace BookingApp.Api.Middleware
                 await next(context);
             } catch (Exception ex)
             {
-                
+
             }
         }
     }

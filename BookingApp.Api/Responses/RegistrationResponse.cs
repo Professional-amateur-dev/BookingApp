@@ -1,4 +1,5 @@
 using BookingApp.Data.Entities;
+using BookingApp.Data.Models;
 
 namespace BookingApp.Api.Responses
 {

@@ -16,10 +16,6 @@ namespace BookingApp.Api.Helpers
             if (user == null)
             {
                 // not logged in
-                var jsonString = "{\"foo\":1,\"bar\":false}";
-                byte[] data = Encoding.UTF8.GetBytes(jsonString);
-
-                context.Response.Body.Write(data, 0, data.Length);
                 return;
             }
         }
@@ -27,7 +23,7 @@ namespace BookingApp.Api.Helpers
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             var a = (User)context.HttpContext.Items["User"];
-            throw new NotImplementedException();
+
         }
     }
 }

@@ -3,11 +3,12 @@ using BookingApp.Api.Requests;
 using BookingApp.Api.Responses;
 using BookingApp.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
-using BookingApp.Core.Services;
+using BookingApp.Api.Helpers;
+using BookingApp.Api.Services;
 
 namespace BookingApp.Api.Controllers.Auth
 {
-    [Route("api/auth/register")]
+   [Route("api/auth/register")]
     public class RegistrationController : BaseController
     {
         private readonly IAuthService authService;
@@ -24,10 +25,12 @@ namespace BookingApp.Api.Controllers.Auth
         [HttpPost]
         public ActionResult<RegistrationResponse> Register(RegistrationRequest request)
         {
-            var user = this.mapper.Map<User>(request);
-            user = this.authService.Register(user);
+            var appUser = this.mapper.Map<User>(request);
 
-            var response = new RegistrationResponse(user, "");
+            /* register user: create the entity in database, hash the password, etc. */
+            var userDetail = this.authService.Register(appUser);
+            var token = JwtHelper.CreateFromUser(appUser);
+            var response = new RegistrationResponse(userDetail, token);
             return response;
         }
     }

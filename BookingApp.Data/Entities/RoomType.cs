@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BookingApp.Data.Entities
@@ -19,7 +20,7 @@ namespace BookingApp.Data.Entities
 
         public RoomService RoomService { get; set; }
         public long RoomServiceId { get; set; }
-        //public ICollection<Room> Rooms{get;set;}
+        public ICollection<Room> Rooms{get;set;}
     
     }
 }

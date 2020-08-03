@@ -9,9 +9,11 @@ using BookingApp.Core.Repositories;
 using BookingApp.Data.Entities;
 using BookingApp.Data.Models;
 using Microsoft.AspNetCore.JsonPatch;
+using BookingApp.Api.Helpers;
 
 namespace BookingApp.Api.Controllers
-{
+{   
+    [Authorize]
     [Route("api/bills")]
     public class BillController : BaseController
     {
@@ -28,6 +30,7 @@ namespace BookingApp.Api.Controllers
             this.mapper = mapper;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<BillDetail>> GetAll([FromQuery] string search)
         {

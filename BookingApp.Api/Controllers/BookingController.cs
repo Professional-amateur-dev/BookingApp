@@ -27,7 +27,7 @@ namespace BookingApp.Api.Controllers
             this.BookingRepository = BookingRepository;
             this.mapper = mapper;
         }
-
+        
         [HttpGet]
         public ActionResult<IEnumerable<BookingDetail>> GetAll([FromQuery] string search)
         {

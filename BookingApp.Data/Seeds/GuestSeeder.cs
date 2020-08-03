@@ -17,7 +17,8 @@ namespace BookingApp.Data.Seeds
                     Sex = "M",
                     Address = "Adresa 123",
                     City = "Zagreb",
-                    State = "Hrvatska"  
+                    State = "Hrvatska",
+                    UserId = 1  
                 },
                 new Guest
                 {
@@ -28,7 +29,8 @@ namespace BookingApp.Data.Seeds
                     Sex = "M",
                     Address = "Adresa 987",
                     City = "Imotski",
-                    State = "Hrvatska"  
+                    State = "Hrvatska",
+                    UserId = 2  
                 },
                 new Guest
                 {
@@ -39,7 +41,8 @@ namespace BookingApp.Data.Seeds
                     Sex = "Ž",
                     Address = "BTMW 23",
                     City = "Los Angeles",
-                    State = "USA"  
+                    State = "USA",
+                    UserId = 3  
                 }
             );
         }

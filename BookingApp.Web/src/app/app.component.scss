@@ -1,0 +1,105 @@
+/*! CSS Used from: https://www.badruttspalace.com/css/style.min.css */
+*,*::after,*::before{-webkit-box-sizing:inherit;box-sizing:inherit;}
+ul{list-style-type:none;margin:0;padding:0;}
+#top>ul li a{font-family:FreightSansProBold-Regular;font-size:.875em;line-height:1.2em;text-transform:uppercase;display:inline-block;position:relative;color:#0f172b;letter-spacing:.25em;}
+@media screen and (max-width: 73.6875em){
+#top>ul li a{font-size:.9em;}
+}
+a{color:#0f172b;text-decoration:none;-webkit-transition:color 150ms ease;transition:color 150ms ease;-webkit-transition:opacity 150ms;transition:opacity 150ms;}
+a:active,a:focus,a:hover{opacity:.6;}
+#top a:active,#top a:focus,#top a:hover{opacity:1;}
+#top{-webkit-backface-visibility:visible;backface-visibility:visible;}
+#top{position:absolute;top:0;right:0;left:0;z-index:999;-webkit-transition:background-color 0.5s;transition:background-color 0.5s;}
+#top:after{content:"";position:absolute;right:0;bottom:0;left:0;height:1px;background-color:#ccc;display:none;}
+#top>ul{float:right;position:relative;z-index:20;}
+#top>ul::after{clear:both;content:"";display:table;}
+#top>ul li{float:left;}
+#top>ul li a{display:block;text-transform:uppercase;line-height:72px;}
+@media screen and (min-width: 48em) and (max-width: 73.6875em){
+#top>ul li a{line-height:55px;}
+}
+@media screen and (max-width: 47.9375em){
+#top>ul li a{line-height:55px;}
+}
+#top>ul:first-child{float:left;}
+#top>ul:first-child li a{padding:0 42px;}
+@media screen and (min-width: 48em) and (max-width: 73.6875em){
+#top>ul:first-child li a{padding:0 30px;}
+}
+@media screen and (max-width: 47.9375em){
+#top>ul:first-child li a{padding:0;}
+}
+#top>ul:first-child li:first-child a{background-color:#fff;background-image:url(https://www.badruttspalace.com/images/icons/icon-menu.png);background-repeat:no-repeat;background-size:32px auto;background-position:center left 42px;padding-left:90px;}
+@media screen and (min-width: 48em) and (max-width: 73.6875em){
+#top>ul:first-child li:first-child a{background-size:32px auto;}
+}
+@media screen and (max-width: 47.9375em){
+#top>ul:first-child li:first-child a{background-size:26px auto;}
+}
+@media screen and (min-width: 48em) and (max-width: 73.6875em){
+#top>ul:first-child li:first-child a{background-position:center left 30px;}
+}
+@media screen and (max-width: 47.9375em){
+#top>ul:first-child li:first-child a{background-position:center;}
+}
+@media screen and (min-width: 48em) and (max-width: 73.6875em){
+#top>ul:first-child li:first-child a{padding-left:70px;}
+}
+@media screen and (max-width: 47.9375em){
+#top>ul:first-child li:first-child a{padding-left:0;}
+}
+@media screen and (max-width: 47.9375em){
+#top>ul:first-child li:first-child a{overflow:hidden;text-indent:101%;white-space:nowrap;height:55px;width:55px;}
+}
+#top>ul:first-child li:last-child a{background-color:#0f172b;color:#fff;}
+@media screen and (max-width: 47.9375em){
+#top>ul:first-child li:last-child a{background-image:url(https://www.badruttspalace.com/images/icons/icon-calendar.png);background-position:center;background-repeat:no-repeat;background-size:26px auto;}
+}
+@media screen and (max-width: 47.9375em){
+#top>ul:first-child li:last-child{overflow:hidden;text-indent:101%;white-space:nowrap;height:55px;width:55px;}
+}
+#top>ul:nth-child(2) li a,#top>ul:nth-child(3) li a{color:#fff;}
+#top>ul:nth-child(2){margin:0 42px 0 1.5em;}
+#top>ul:nth-child(2)>li:not(:last-child){margin-right:.75em;}
+@media screen and (max-width: 47.9375em){
+#top>ul:nth-child(2){margin-right:21px;}
+}
+#top>ul:nth-child(3) li{vertical-align:middle;}
+#top>ul:nth-child(3) li:not(:first-child){margin-left:1.5em;}
+#top>ul:nth-child(3) li a.icon{overflow:hidden;text-indent:101%;white-space:nowrap;display:block;background-position:center;background-repeat:no-repeat;background-size:contain;height:72px;}
+@media screen and (min-width: 48em) and (max-width: 73.6875em){
+#top>ul:nth-child(3) li a.icon{height:55px;}
+}
+@media screen and (max-width: 47.9375em){
+#top>ul:nth-child(3) li a.icon{height:55px;}
+}
+#top>ul:nth-child(3) li a.icon.tel{width:20px;background-image:url(https://www.badruttspalace.com/images/icons/phone-white.png);}
+#top>ul:nth-child(3) li a.icon.email{width:22px;background-image:url(https://www.badruttspalace.com/images/icons/icon-mail-white.png);}
+#top>ul:nth-child(3) li a.icon.map{width:18px;background-image:url(https://www.badruttspalace.com/images/icons/icon-marker-white.png);}
+@media screen and (max-width: 47.9375em){
+#top>ul:nth-child(3){display:none;}
+}
+#top>a{display:none;position:absolute;top:0;left:50%;overflow:hidden;text-indent:101%;white-space:nowrap;z-index:10;margin-left:-22px;background-image:url(https://www.badruttspalace.com/images/icons/logo-sticky.png);background-position:center;background-size:contain;background-repeat:no-repeat;width:44px;height:72px;}
+@media screen and (min-width: 48em) and (max-width: 73.6875em){
+#top>a{width:34px;}
+}
+@media screen and (max-width: 47.9375em){
+#top>a{width:34px;}
+}
+@media screen and (min-width: 48em) and (max-width: 73.6875em){
+#top>a{height:55px;}
+}
+@media screen and (max-width: 47.9375em){
+#top>a{height:55px;}
+}
+@media screen and (max-width: 47.9375em){
+#top>a{margin-left:-16px;}
+}
+#top.is_stuck{background-color:white;}
+#top.is_stuck:after{display:block;}
+#top.is_stuck>ul li a{color:#0f172b;}
+#top.is_stuck>ul:nth-child(3) li a.icon.tel{background-image:url(https://www.badruttspalace.com/images/icons/icon-phone.png);}
+#top.is_stuck>ul:nth-child(3) li a.icon.email{background-image:url(https://www.badruttspalace.com/images/icons/icon-mail.png);}
+#top.is_stuck>ul:nth-child(3) li a.icon.map{background-image:url(https://www.badruttspalace.com/images/icons/icon-marker.png);}
+#top.is_stuck>ul:first-child li:first-child a{background-color:transparent;}
+#top.is_stuck>a{display:block;}

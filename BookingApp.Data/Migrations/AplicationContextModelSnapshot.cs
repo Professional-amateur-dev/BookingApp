@@ -69,7 +69,7 @@ namespace BookingApp.Data.Migrations
                             Id = 1L,
                             Amount = 234.0,
                             BookingId = 1L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 834, DateTimeKind.Local).AddTicks(1116),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 413, DateTimeKind.Local).AddTicks(8757),
                             InvoiceDate = new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InvoiceDueDate = new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InvoiceNum = "1/27/123",
@@ -82,7 +82,7 @@ namespace BookingApp.Data.Migrations
                             Id = 2L,
                             Amount = 987.0,
                             BookingId = 2L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 838, DateTimeKind.Local).AddTicks(4897),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 416, DateTimeKind.Local).AddTicks(8405),
                             InvoiceDate = new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InvoiceDueDate = new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InvoiceNum = "1/27/987",
@@ -95,7 +95,7 @@ namespace BookingApp.Data.Migrations
                             Id = 3L,
                             Amount = 19834.0,
                             BookingId = 1L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 838, DateTimeKind.Local).AddTicks(5061),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 416, DateTimeKind.Local).AddTicks(8507),
                             InvoiceDate = new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InvoiceDueDate = new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             InvoiceNum = "2/5/987",
@@ -146,7 +146,7 @@ namespace BookingApp.Data.Migrations
                             Id = 1L,
                             BeginningDate = new DateTime(2005, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BookingStatusId = 1L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 840, DateTimeKind.Local).AddTicks(3292),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 418, DateTimeKind.Local).AddTicks(1501),
                             EndingDate = new DateTime(2005, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GuestId = 1L,
                             RoomId = 1L
@@ -156,7 +156,7 @@ namespace BookingApp.Data.Migrations
                             Id = 2L,
                             BeginningDate = new DateTime(2005, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BookingStatusId = 2L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 840, DateTimeKind.Local).AddTicks(5268),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 418, DateTimeKind.Local).AddTicks(2994),
                             EndingDate = new DateTime(2005, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GuestId = 2L,
                             RoomId = 2L
@@ -166,7 +166,7 @@ namespace BookingApp.Data.Migrations
                             Id = 3L,
                             BeginningDate = new DateTime(2020, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BookingStatusId = 2L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 840, DateTimeKind.Local).AddTicks(5339),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 418, DateTimeKind.Local).AddTicks(3054),
                             EndingDate = new DateTime(2023, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GuestId = 1L,
                             RoomId = 1L
@@ -204,7 +204,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 840, DateTimeKind.Local).AddTicks(8582),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 418, DateTimeKind.Local).AddTicks(5416),
                             Description = "Booking nikada nije modificiran",
                             Status = "ALL OK BOSS",
                             ValidBooking = true
@@ -212,7 +212,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 841, DateTimeKind.Local).AddTicks(231),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 418, DateTimeKind.Local).AddTicks(6300),
                             Description = "Bookinga nema, server je u vatri",
                             Status = "FATAL BOOKINNG ERROR",
                             ValidBooking = true
@@ -220,7 +220,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 841, DateTimeKind.Local).AddTicks(274),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 418, DateTimeKind.Local).AddTicks(6335),
                             Description = "blank description",
                             Status = "ALL OK BOSS 2",
                             ValidBooking = true
@@ -287,7 +287,7 @@ namespace BookingApp.Data.Migrations
                             Id = 1L,
                             Address = "Adresa 123",
                             City = "Zagreb",
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 841, DateTimeKind.Local).AddTicks(4448),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 418, DateTimeKind.Local).AddTicks(9251),
                             FirstName = "Pero",
                             LastName = "Perić",
                             MobileNumber = "+123456789",
@@ -300,7 +300,7 @@ namespace BookingApp.Data.Migrations
                             Id = 2L,
                             Address = "Adresa 987",
                             City = "Imotski",
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 841, DateTimeKind.Local).AddTicks(7219),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(1125),
                             FirstName = "Ante",
                             LastName = "Antić",
                             MobileNumber = "+987654321",
@@ -313,7 +313,7 @@ namespace BookingApp.Data.Migrations
                             Id = 3L,
                             Address = "BTMW 23",
                             City = "Los Angeles",
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 841, DateTimeKind.Local).AddTicks(7302),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(1195),
                             FirstName = "Chris",
                             LastName = "Brown",
                             MobileNumber = "+12361234",
@@ -354,7 +354,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(816),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(3556),
                             Description = "opis placanja visom",
                             Status = true,
                             Type = "Visa"
@@ -362,7 +362,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(1700),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(4350),
                             Description = "placanje nije proslo itd itd",
                             Status = false,
                             Type = "Mastercard"
@@ -370,7 +370,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(1735),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(4388),
                             Description = "opis placanja visom br 3",
                             Status = true,
                             Type = "Visa"
@@ -403,21 +403,21 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(4453),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(6687),
                             Price = 123.40000000000001,
                             RoomTypeId = 1L
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(5205),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(7266),
                             Price = 134.69999999999999,
                             RoomTypeId = 2L
                         },
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(5253),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(7310),
                             Price = 23.800000000000001,
                             RoomTypeId = 3L
                         });
@@ -449,28 +449,28 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(8698),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 419, DateTimeKind.Local).AddTicks(9766),
                             Name = "WIFI",
                             Price = 25.399999999999999
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(9487),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(374),
                             Name = "Topla voda",
                             Price = 84.230000000000004
                         },
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(9513),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(404),
                             Name = "Parking",
                             Price = 569.23000000000002
                         },
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 842, DateTimeKind.Local).AddTicks(9517),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(407),
                             Name = "Sat TV",
                             Price = 0.23000000000000001
                         });
@@ -519,7 +519,7 @@ namespace BookingApp.Data.Migrations
                         {
                             Id = 1L,
                             BedCount = 3,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 843, DateTimeKind.Local).AddTicks(3179),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(3016),
                             Description = "dugacak opis sobe",
                             PersonCount = 6,
                             RoomServiceId = 1L,
@@ -530,7 +530,7 @@ namespace BookingApp.Data.Migrations
                         {
                             Id = 2L,
                             BedCount = 1,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 843, DateTimeKind.Local).AddTicks(5126),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(4432),
                             Description = "dugacak opis sobe 2",
                             PersonCount = 2,
                             RoomServiceId = 1L,
@@ -541,7 +541,7 @@ namespace BookingApp.Data.Migrations
                         {
                             Id = 3L,
                             BedCount = 1,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 843, DateTimeKind.Local).AddTicks(5189),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(4491),
                             Description = "dugacak opis sobe 3",
                             PersonCount = 3,
                             RoomServiceId = 1L,
@@ -579,7 +579,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 843, DateTimeKind.Local).AddTicks(9566),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(6940),
                             Email = "admin@admin.com",
                             Password = "$%&/(=PŠČŽĐ?)(=?)=(T%RWSR",
                             UserName = "Admin"
@@ -587,7 +587,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 844, DateTimeKind.Local).AddTicks(2976),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(7721),
                             Email = "biggie@smalls.com",
                             Password = "%EEASTZFGOJOBVTZE%$#&/=(",
                             UserName = "Biggie"
@@ -595,7 +595,7 @@ namespace BookingApp.Data.Migrations
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2020, 8, 3, 14, 18, 30, 844, DateTimeKind.Local).AddTicks(3050),
+                            CreatedAt = new DateTime(2020, 8, 6, 15, 22, 32, 420, DateTimeKind.Local).AddTicks(7756),
                             Email = "brk@os.com",
                             Password = "E$%#&/%&)=OHFD%/ER()/())PN",
                             UserName = "BrankoKos"

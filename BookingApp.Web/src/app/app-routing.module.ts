@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { ProtestListComponent } from './protests/protest-list/protest-list.component';
-import { ProtestDetailComponent } from './protests/protest-detail/protest-detail.component';
-import { CityListComponent } from './cities/city-list/city-list.component';
-import { CityDetailComponent } from './cities/city-detail/city-detail.component';
-
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: ProtestListComponent },
-  { path: 'protests', component: ProtestListComponent },
-  { path: 'protests/:id', component: ProtestDetailComponent },
-  { path: 'cities', component: CityListComponent },
-  { path: 'cities/:id', component: CityDetailComponent }
+  { path: 'home', component: AppComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

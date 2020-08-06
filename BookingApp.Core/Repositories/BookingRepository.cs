@@ -23,6 +23,7 @@ namespace BookingApp.Core.Repositories
         {
             return this.context.Bookings
                 .Where(p => p.Id == id)
+                .Include(p => p.Guest)
                 .First<Booking>();
         }
 

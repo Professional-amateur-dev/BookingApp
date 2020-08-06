@@ -32,8 +32,8 @@ namespace BookingApp.Api.Controllers
         public ActionResult<IEnumerable<BookingStatusDetail>> GetAll([FromQuery] string search)
         {
             var BookingStatuses = this.BookingStatusRepository.GetAll(search);
-            BookingStatuses = this.mapper.Map<IEnumerable<BookingStatusDetail>>(BookingStatuses);
-            return Ok(BookingStatuses);
+            var BookingStatuses2 = this.mapper.Map<IEnumerable<BookingStatusDetail>>(BookingStatuses);
+            return Ok(BookingStatuses2);
         }
 
         [HttpGet("{id}")]

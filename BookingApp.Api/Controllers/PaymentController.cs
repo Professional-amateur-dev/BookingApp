@@ -32,8 +32,8 @@ namespace BookingApp.Api.Controllers
         public ActionResult<IEnumerable<PaymentDetail>> GetAll([FromQuery] string search)
         {
             var Payments = this.PaymentRepository.GetAll(search);
-            Payments = this.mapper.Map<IEnumerable<PaymentDetail>>(Payments);
-            return Ok(Payments);
+            var Payments2 = this.mapper.Map<IEnumerable<PaymentDetail>>(Payments);
+            return Ok(Payments2);
         }
 
         [HttpGet("{id}")]

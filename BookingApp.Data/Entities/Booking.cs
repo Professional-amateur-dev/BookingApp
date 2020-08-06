@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using BookingApp.Data.Models;
 
 namespace BookingApp.Data.Entities
 {
     public class Booking : BaseEntity
     {
+        //GuestSimple
         public Guest Guest { get; set; }
         public long GuestId { get; set; }
 

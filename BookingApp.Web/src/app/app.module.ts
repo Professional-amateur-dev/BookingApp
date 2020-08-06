@@ -1,28 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProtestListComponent } from './protests/protest-list/protest-list.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { ProtestDetailComponent } from './protests/protest-detail/protest-detail.component';
-import { CityListComponent } from './cities/city-list/city-list.component';
-import { CityDetailComponent } from './cities/city-detail/city-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookingsModule } from './bookings/bookings.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProtestListComponent,
-    ProtestDetailComponent,
-    CityListComponent,
-    CityDetailComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    BookingsModule
+  ],
+  exports: [
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

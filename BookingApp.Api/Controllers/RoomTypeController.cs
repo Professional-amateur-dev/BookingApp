@@ -32,8 +32,8 @@ namespace BookingApp.Api.Controllers
         public ActionResult<IEnumerable<RoomTypeDetail>> GetAll([FromQuery] string search)
         {
             var RoomTypes = this.RoomTypeRepository.GetAll(search);
-            RoomTypes = this.mapper.Map<IEnumerable<RoomTypeDetail>>(RoomTypes);
-            return Ok(RoomTypes);
+            var RoomTypes2 = this.mapper.Map<IEnumerable<RoomTypeDetail>>(RoomTypes);
+            return Ok(RoomTypes2);
         }
 
         [HttpGet("{id}")]

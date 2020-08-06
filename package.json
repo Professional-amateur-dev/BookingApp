@@ -1,12 +1,24 @@
 {
-  "name": "app",
+  "name": "package",
   "version": "0.0.1",
   "scripts": {
-    "api:build": "dotnet build Protests.Api/Protests.Api.csproj",
+    "start": "npm-run-all --parallel api:start web:start",
+    "init": "npm-run-all --sequential remove:migration postinstall database:drop make:migration database:update start",
+    "git": "npm-run-all --sequential add commit push",
+    "add": "git add .",
+    "commit": "git commit -m $Refactor_Web",
+    "push": "git push origin master",
+    "api:install": "cd BookingApp.Api && dotnet restore && cd ..",
+    "api:build": "dotnet build BookingApp.Api/BookingApp.Api.csproj",
+    "api:start": "dotnet run -p BookingApp.Api/BookingApp.Api.csproj",
+    "web:install": "cd BookingApp.Web && npm install && cd ..",
     "web:build": "npm run build --production",
-    "api:start": "dotnet run -p Protests.Api/Protests.Api.csproj",
-    "web:start": "cd Protests.Web && npm start",
-    "start": "npm-run-all --parallel api:start web:start"
+    "web:start": "cd BookingApp.Web && npm start && cd ..",
+    "postinstall": "npm-run-all --parallel api:install web:install",
+    "remove:migration": "rm -r -f BookingApp.Data/Migrations",
+    "make:migration": "dotnet ef --startup-project BookingApp.Api migrations add $MSG --project BookingApp.Data",
+    "database:update": "dotnet ef --startup-project BookingApp.Api database update --project BookingApp.Data",
+    "database:drop": "dotnet ef --startup-project BookingApp.Api database drop --project BookingApp.Data"
   },
   "dependencies": {
     "npm-run-all": "^4.1.5"

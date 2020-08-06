@@ -9,6 +9,8 @@
     "add": "git add .",
     "commit": "git commit -m Refactor_package.json",
     "push": "git push origin master",
+    "hibernate": "shutdown /h",
+    "sleep":"npm-run-all --sequential git hibernate",
     "api:install": "cd BookingApp.Api && dotnet restore && cd ..",
     "api:build": "dotnet build BookingApp.Api/BookingApp.Api.csproj",
     "api:start": "dotnet run -p BookingApp.Api/BookingApp.Api.csproj",

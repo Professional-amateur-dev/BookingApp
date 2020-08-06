@@ -4,10 +4,10 @@
 
   "scripts": {
     "start": "npm-run-all --parallel api:start web:start",
-    "init": "npm-run-all --sequential remove:migration postinstall database:drop make:migration database:update start",
+    "init": "npm-run-all --sequential remove:migration database:drop make:migration database:update start",
     "git": "npm-run-all --sequential add commit push",
     "add": "git add .",
-    "commit": "git commit -m Refactor_Web",
+    "commit": "git commit -m Refactor_package.json",
     "push": "git push origin master",
     "api:install": "cd BookingApp.Api && dotnet restore && cd ..",
     "api:build": "dotnet build BookingApp.Api/BookingApp.Api.csproj",
@@ -15,7 +15,7 @@
     "web:install": "cd BookingApp.Web && npm install && cd ..",
     "web:build": "npm run build --production",
     "web:start": "cd BookingApp.Web && npm start && cd ..",
-    "postinstall": "npm-run-all --parallel api:install web:install",
+    "postinstall": "npm-run-all --parallel api:install web:install --sequential init",
     "remove:migration": "rm -r -f BookingApp.Data/Migrations",
     "make:migration": "dotnet ef --startup-project BookingApp.Api migrations add $MSG --project BookingApp.Data",
     "database:update": "dotnet ef --startup-project BookingApp.Api database update --project BookingApp.Data",

@@ -10,6 +10,7 @@ export class VideoQuoteComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

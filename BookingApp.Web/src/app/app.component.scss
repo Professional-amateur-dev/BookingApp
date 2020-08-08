@@ -1,0 +1,13 @@
+@font-face {
+    font-family: Freight Sans Light SC;
+    src: url(../assets/Freight/Freight-Sans-Light-SC/Freight-Sans-Light-SC.otf) format("opentype");
+  }
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+ 
+mat-sidenav {
+    width: 250px;
+    font-family: "Freight Sans Light SC";
+}
+ 

@@ -1,0 +1,48 @@
+@font-face {
+    font-family: Freight Sans Light SC;
+    src: url(/assets/Freight/Freight-Sans-Light-SC/Freight-Sans-Light-SC.otf) format("opentype");
+  }
+
+.font{
+    font-family: "Freight Sans Light SC";
+}
+
+.main_icon{
+    margin-left: auto;
+    margin-top: 4px;
+}
+a {
+    font-size: 1.0em;
+    font-style: none;
+    color: white;
+}
+ 
+a:hover, a:active{
+    color: lightgray;
+}
+ 
+.navigation-items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.icon{
+    margin-top: 3px;
+}
+
+.menu{
+    margin-right: 3px;
+}
+
+
+ 
+mat-toolbar{
+    border-radius: 3px;
+}
+ 
+@media(max-width: 959px){
+    mat-toolbar{
+        border-radius: 0px;
+    }
+}

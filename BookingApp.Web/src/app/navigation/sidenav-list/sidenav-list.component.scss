@@ -1,4 +1,8 @@
 @font-face {
+    font-family: Freight Big Light;
+    src: url(/assets/Freight/Freight-Big-Light/Freight-Big-Light.otf) format("opentype");
+  }
+  @font-face {
     font-family: Freight Sans Light SC;
     src: url(/assets/Freight/Freight-Sans-Light-SC/Freight-Sans-Light-SC.otf) format("opentype");
   }
@@ -15,14 +19,14 @@
     margin:0px auto;
     padding:0px;
     //box-shadow:0px 4px 5px lightgray;
-    font-family: "Freight Sans Light SC";
+    font-family: "Freight Big Light";
  }
 
  .icon{
      padding-right: 25px;
  }
  .link{
-    font-size:16px;
+    font-size:1.1em;
     font-weight:300;
     text-align:center;
     position:relative;
@@ -52,6 +56,7 @@
     transform:translateY(100%) translateZ(0);
     transition-delay:all 0.25s;
     font-family: "Freight Sans Light SC";
+    
  }
  .link:hover .text,
  .link.hover .text{

@@ -11,9 +11,14 @@
     font-family: "Freight Sans Light SC";
 }
 
+.mat-icon-button:hover{
+    color: lightgray;
+}
+
 .main_icon{
     margin-left: auto;
     margin-top: 4px;
+    padding-left: 2em;
 }
 a {
     font-size: 1.0em;

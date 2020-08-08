@@ -13,12 +13,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatListModule } from '@angular/material/list';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
+import { VideoQuoteComponent } from './home-page/video-quote/video-quote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    VideoQuoteComponent
   ],
   imports: [
     BrowserModule,

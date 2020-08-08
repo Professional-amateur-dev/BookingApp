@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" (click)="onToggleSidenav()" class="font">
-        <button mat-icon-button>
+        <button mat-icon-button class="mat-icon-button">
             <mat-icon class="menu">menu</mat-icon>
-            <a routerLink="/home" fxHide.xs>MENU</a>
+            <a routerLink="/home" fxHide.xs class="mat-icon-button">MENU</a>
         </button>
         <div fxFlex fxLayout fxLayoutAlign="center" >
             <mat-icon class="main_icon">king_bed</mat-icon><span class="text">Hotel</span>
@@ -9,19 +9,25 @@
     <div fxFlex fxLayout fxLayoutAlign="end" >
         <ul fxLayout fxLayoutGap="12px" class="navigation-items">
             <li>
+                <button mat-icon-button>
                 <mat-icon class="icon" fxHide.xs>phone_outline</mat-icon>
+            </button>
             </li>
             <li>
+                <button mat-icon-button>
                 <mat-icon class="icon" fxHide.xs>mail_outline</mat-icon>
+            </button>
             </li>
             <li>
+                <button mat-icon-button>
                 <mat-icon class="icon" fxHide.xs>place</mat-icon>
+            </button>
             </li>
             <li>
-                <a routerLink="/home">EN</a>
+                <a routerLink="/home" class="mat-icon-button">EN</a>
             </li>
             <li>
-                <a routerLink="/home">HR</a>
+                <a routerLink="/home" class="mat-icon-button">HR</a>
             </li>
         </ul>
     </div>

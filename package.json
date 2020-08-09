@@ -7,7 +7,7 @@
     "init": "npm-run-all --sequential remove:migration database:drop make:migration database:update start",
     "git": "npm-run-all --sequential add commit push",
     "add": "git add .",
-    "commit": "git commit -m Add_Navbar",
+    "commit": "git commit -m Fix_Bugs",
     "push": "git push origin master",
     "hibernate": "shutdown /h",
     "sleep":"npm-run-all --sequential git hibernate",

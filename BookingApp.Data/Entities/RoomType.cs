@@ -20,6 +20,8 @@ namespace BookingApp.Data.Entities
 
         public RoomService RoomService { get; set; }
         public long RoomServiceId { get; set; }
+        
+        //public ICollection<RoomService> RoomServices {get;set;} 
         public ICollection<Room> Rooms{get;set;}
     
     }

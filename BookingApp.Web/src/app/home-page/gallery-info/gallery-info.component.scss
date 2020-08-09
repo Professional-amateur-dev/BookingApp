@@ -1,27 +1,39 @@
+@font-face {
+  font-family: Freight Big Light;
+  src: url(/assets/Freight/Freight-Big-Light/Freight-Big-Light.otf) format("opentype");
+}
+@font-face {
+  font-family: Freight Sans Light SC;
+  src: url(/assets/Freight/Freight-Sans-Light-SC/Freight-Sans-Light-SC.otf) format("opentype");
+}
+
 .bounds {
     background-color:#ddd;
     height :800px;
   }
   
   .sec1 {
-    background: red;
-    color:white;
-    text-transform: uppercase
+    background:white;
+    color:black;
+    font-family: "Freight Big Light";
+    font-size: 1.5em;
   }
   
   .sec2 {
-    background: yellow;
-    color:blue;
+    background: black;
+    color:white;
+    font-family: "Freight Sans Light SC";
+    font-size: 1.5em;
     
   }
   
   
-  .sec1, .sec2, .sec3 {
-    padding-top:20px;
+  .sec1, .sec2 {
+    padding-top:30px;
     text-align:center
   }
   
   .content {
     min-width: 300px;
-    /*height: 400px;*/
+    //height: 400px;
   }

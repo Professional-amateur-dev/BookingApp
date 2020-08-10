@@ -8,11 +8,13 @@
 }
 
 .bounds {
-    background-color:#ddd;
-    height :800px;
+    background-color:white;
+    height :auto;
+    padding-bottom: 20px;
   }
   
   .sec1 {
+    padding-top: 10vh;
     background:white;
     color:black;
     font-family: "Freight Big Light";
@@ -20,7 +22,7 @@
   }
   
   .sec2 {
-    background: black;
+    background: white;
     color:white;
     font-family: "Freight Sans Light SC";
     font-size: 1.5em;
@@ -37,3 +39,7 @@
     min-width: 300px;
     //height: 400px;
   }
+
+  *:focus {
+    outline: none;
+}

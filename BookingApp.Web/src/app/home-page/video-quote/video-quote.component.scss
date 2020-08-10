@@ -7,9 +7,36 @@
     src: url(/assets/Freight/Freight-Sans-Light-SC/Freight-Sans-Light-SC.otf) format("opentype");
   }
 
-*{
-    box-sizing: border-box;
-  }
+* { box-sizing: border-box; }
+.video-background {
+  background: #000;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-foreground { width: 300%; left: -100%; }
+}
+@media all and (max-width: 600px) {
+.vid-info { width: 50%; padding: .5rem; }
+.vid-info h1 { margin-bottom: .2rem; }
+}
+@media all and (max-width: 500px) {
+.vid-info .acronym { display: none; }
+}
   
   body{
     margin:0;
@@ -58,23 +85,35 @@
     left:0;
     width:100vw;
     z-index:1;
-    background:#a7bac5;
-    opacity:0.5;
+    background:#afb8bd;
+    opacity:0.3;
   }
   
   .header-content{
-    z-index:2;
+    opacity:1 !important;
+    width: 100vw;
+    display: flex;
+    color: rgb(249, 249, 253);
+    font-family: "Freight Big Light";
+    z-index:10  !important;
+    height: 300px;
   }
   
-  .header-content h1{
+  h1{
     font-size:50px;
     margin-bottom:0;
+    width: 100%;
+    justify-content: center;
+    color: rgb(249, 249, 253);
+    font-family: "Freight Big Light";
   }
   
-  .header-content p{
+  p{
     font-size:1.5rem;
     display:block;
     padding-bottom:2rem;
+    font-family: "Freight Big Light";
+    width:100%;
   }
 
   

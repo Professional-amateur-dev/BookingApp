@@ -1,17 +1,32 @@
 <div class="bounds">
-    
     <div  class="content" 
          fxLayout="row" 
          fxLayout.sm="column" 
          fxLayout.xs="column"
          fxFlexFill >
          
-        <div fxFlex="50" class="sec1" >
+        <div fxFlex="35" class="sec1" >
             <h1>NASLOV HOTELA</h1>
             <p>Tekst koji opisuje apartman</p>
         </div>
-        <div fxFlex="50" class="sec2" >
-            <h1>GALLERY</h1>
+        <div fxFlex="65" class="sec2" >
+            <ngb-carousel *ngIf="images">
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="images[0]" alt="Random first slide">
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="images[1]" alt="Random second slide">
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img [src]="images[2]" alt="Random third slide">
+                  </div>
+                </ng-template>
+              </ngb-carousel>
         </div>
         
     </div>

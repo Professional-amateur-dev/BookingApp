@@ -6,6 +6,7 @@ import { GalleryInfoComponent } from './gallery-info/gallery-info.component';
 import { VideoQuoteComponent } from './video-quote/video-quote.component';
 import { HomePageComponent } from './home-page.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
   imports: [
     CommonModule,
     HomePageRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgbModule
   ],
   exports: [
     FlexLayoutModule

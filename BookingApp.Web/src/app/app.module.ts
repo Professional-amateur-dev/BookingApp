@@ -14,6 +14,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatListModule } from '@angular/material/list';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { HomePageModule } from './home-page/home-page.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -35,7 +36,8 @@ import { HomePageModule } from './home-page/home-page.module';
     MatButtonModule,
     FlexLayoutModule,
     MatListModule,
-    HomePageModule
+    HomePageModule,
+    NgbModule
   ],
   exports: [
     MatToolbarModule,
@@ -44,7 +46,8 @@ import { HomePageModule } from './home-page/home-page.module';
     MatIconModule,
     MatButtonModule,
     FlexLayoutModule,
-    MatListModule
+    MatListModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

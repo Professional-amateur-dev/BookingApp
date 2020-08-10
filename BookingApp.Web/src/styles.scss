@@ -3,7 +3,7 @@
     font-family: Freight Big Light;
     src: url(assets/Freight/Freight-Big-Light/Freight-Big-Light.otf) format("opentype");
   }
-html, body { height: 100%; margin: 0; }
+html, body { height: 100%; margin: 0; width: 100vw; }
 body { margin: 0; font-family: "Freight Big Light", "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */

@@ -1,0 +1,25 @@
+.example-card {
+    max-width: 500px;
+  }
+  
+  .example-header-image {
+   background-size: cover;
+  }
+  .bounds {
+    height :auto;
+    width: 100vw;
+    padding:10vw;
+    background-color: white; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background: url('https://i.pinimg.com/originals/c6/60/24/c66024ea79527d9bbafe79ed171558b9.jpg');
+    background-size: cover;
+}
+body{
+    margin:0;
+    font-weight:normal;
+    line-height:1.5;
+    color:#333;
+    overflow-x:hidden;
+  }

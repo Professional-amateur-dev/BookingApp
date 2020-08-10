@@ -75,7 +75,7 @@
   
   .fullscreen-video-wrap video{
     min-height:100%;
-    min-width:100%;
+    min-width:100vw;
   }
   
   .header-overlay{
@@ -102,7 +102,7 @@
   h1{
     font-size:50px;
     margin-bottom:0;
-    width: 100%;
+    width: 100vw;
     justify-content: center;
     color: rgb(249, 249, 253);
     font-family: "Freight Big Light";

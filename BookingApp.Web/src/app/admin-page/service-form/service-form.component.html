@@ -1,1 +1,33 @@
-<p>radi foram</p>
+<div class="container">
+<div class="col-sm-6 mx-auto my-lg-5">
+    <form (ngSubmit)="onSubmit()">
+      <input type="hidden" name="id" [(ngModel)]="roomService.id">
+  
+      <!-- name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="roomService.name"
+          class="form-control"
+          id="name"
+          placeholder="Unesite uslugu">
+      </div>
+  
+      <!-- price -->
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="number"
+          name="price"
+          [(ngModel)]="roomService.price"
+          class="form-control"
+          id="price"
+          placeholder="Unesite cijenu">
+      </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { RoomService } from '../roomService';
+import { RoomServiceService } from '../room-service.service';
+import { Router } from '@angular/router';
+import { LoadingService } from '../../shared/loading/loading.service';
 
 @Component({
   selector: 'app-service-form',
@@ -8,12 +12,27 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ServiceFormComponent implements OnInit {
 
+  roomService: RoomService = {} as RoomService;
 
-  constructor(private toastr: ToastrService) { }
+  constructor(
+    private toastr: ToastrService,
+    private roomServiceService: RoomServiceService,
+    private loadingService: LoadingService,
+    private router: Router,
+
+    ) { }
 
   ngOnInit(): void {
-    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 
+  onSubmit() {
+    this.loadingService.show();
+    this.roomServiceService
+      .postRoomService(this.roomService)
+      .subscribe(result => {
+        this.loadingService.hide();
+        this.toastr.success('Success' + result.id);
+      });
+  }
 
 }

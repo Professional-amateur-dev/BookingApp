@@ -16,6 +16,7 @@ import { HomePageModule } from './home-page/home-page.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminPageModule } from './admin-page/admin-page.module';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -39,7 +40,8 @@ import { ToastrModule } from 'ngx-toastr';
     HomePageModule,
     NgbModule,
     AdminPageModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
   ],
   exports: [
     MatToolbarModule,

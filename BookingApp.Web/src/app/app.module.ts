@@ -6,7 +6,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BookingsModule } from './bookings/bookings.module';
 import { HeaderComponent } from './navigation/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,6 +15,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { HomePageModule } from './home-page/home-page.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminPageModule } from './admin-page/admin-page.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -31,7 +31,6 @@ import { AdminPageModule } from './admin-page/admin-page.module';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatToolbarModule,
-    BookingsModule,
     MatTabsModule,
     MatIconModule,
     MatButtonModule,
@@ -39,7 +38,8 @@ import { AdminPageModule } from './admin-page/admin-page.module';
     MatListModule,
     HomePageModule,
     NgbModule,
-    AdminPageModule
+    AdminPageModule,
+    ToastrModule.forRoot()
   ],
   exports: [
     MatToolbarModule,

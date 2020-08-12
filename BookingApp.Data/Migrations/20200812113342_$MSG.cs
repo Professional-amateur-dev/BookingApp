@@ -55,6 +55,24 @@ namespace BookingApp.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RoomTypes",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Type = table.Column<string>(maxLength: 50, nullable: false),
+                    Description = table.Column<string>(maxLength: 1000, nullable: false),
+                    BedCount = table.Column<int>(nullable: false),
+                    PersonCount = table.Column<int>(nullable: false),
+                    Surface = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoomTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -71,26 +89,49 @@ namespace BookingApp.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RoomTypes",
+                name: "Rooms",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedAt = table.Column<DateTime>(nullable: false),
-                    Type = table.Column<string>(maxLength: 50, nullable: false),
-                    Description = table.Column<string>(maxLength: 1000, nullable: false),
-                    BedCount = table.Column<int>(nullable: false),
-                    PersonCount = table.Column<int>(nullable: false),
-                    Surface = table.Column<int>(nullable: false),
-                    RoomServiceId = table.Column<long>(nullable: false)
+                    RoomTypeId = table.Column<long>(nullable: false),
+                    Price = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RoomTypes", x => x.Id);
+                    table.PrimaryKey("PK_Rooms", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RoomTypes_RoomServices_RoomServiceId",
+                        name: "FK_Rooms_RoomTypes_RoomTypeId",
+                        column: x => x.RoomTypeId,
+                        principalTable: "RoomTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RoomServiceTypes",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    RoomServiceId = table.Column<long>(nullable: false),
+                    RoomTypeId = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoomServiceTypes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RoomServiceTypes_RoomServices_RoomServiceId",
                         column: x => x.RoomServiceId,
                         principalTable: "RoomServices",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RoomServiceTypes_RoomTypes_RoomTypeId",
+                        column: x => x.RoomTypeId,
+                        principalTable: "RoomTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -118,27 +159,6 @@ namespace BookingApp.Data.Migrations
                         name: "FK_Guests_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Rooms",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
-                    RoomTypeId = table.Column<long>(nullable: false),
-                    Price = table.Column<double>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rooms", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Rooms_RoomTypes_RoomTypeId",
-                        column: x => x.RoomTypeId,
-                        principalTable: "RoomTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -217,9 +237,9 @@ namespace BookingApp.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "Description", "Status", "ValidBooking" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2020, 8, 10, 9, 59, 59, 349, DateTimeKind.Local).AddTicks(6326), "Booking nikada nije modificiran", "ALL OK BOSS", true },
-                    { 2L, new DateTime(2020, 8, 10, 9, 59, 59, 349, DateTimeKind.Local).AddTicks(7232), "Bookinga nema, server je u vatri", "FATAL BOOKINNG ERROR", true },
-                    { 3L, new DateTime(2020, 8, 10, 9, 59, 59, 349, DateTimeKind.Local).AddTicks(7274), "blank description", "ALL OK BOSS 2", true }
+                    { 1L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(2476), "Booking nikada nije modificiran", "ALL OK BOSS", true },
+                    { 2L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(2945), "Bookinga nema, server je u vatri", "FATAL BOOKINNG ERROR", true },
+                    { 3L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(2969), "blank description", "ALL OK BOSS 2", true }
                 });
 
             migrationBuilder.InsertData(
@@ -227,9 +247,9 @@ namespace BookingApp.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "Description", "Status", "Type" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(4383), "opis placanja visom", true, "Visa" },
-                    { 2L, new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(5173), "placanje nije proslo itd itd", false, "Mastercard" },
-                    { 3L, new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(5210), "opis placanja visom br 3", true, "Visa" }
+                    { 1L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(7876), "opis placanja visom", true, "Visa" },
+                    { 2L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(8324), "placanje nije proslo itd itd", false, "Mastercard" },
+                    { 3L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(8348), "opis placanja visom br 3", true, "Visa" }
                 });
 
             migrationBuilder.InsertData(
@@ -237,10 +257,23 @@ namespace BookingApp.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(545), "WIFI", 25.399999999999999 },
-                    { 2L, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(1146), "Topla voda", 84.230000000000004 },
-                    { 3L, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(1173), "Parking", 569.23000000000002 },
-                    { 4L, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(1177), "Sat TV", 0.23000000000000001 }
+                    { 6L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(3065), "ekstra rucnici", 67.230000000000004 },
+                    { 5L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(3061), "Dorucak", 59.229999999999997 },
+                    { 4L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(3058), "Sat TV", 0.23000000000000001 },
+                    { 2L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(2998), "Topla voda", 84.230000000000004 },
+                    { 1L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(2637), "WIFI", 25.399999999999999 },
+                    { 3L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(3017), "Parking", 569.23000000000002 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RoomTypes",
+                columns: new[] { "Id", "BedCount", "CreatedAt", "Description", "PersonCount", "Surface", "Type" },
+                values: new object[,]
+                {
+                    { 1L, 3, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(5342), "dugacak opis sobe", 6, 58, "Deluxe spavaca sobe 1" },
+                    { 2L, 1, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(6027), "dugacak opis sobe 2", 2, 30, "Basic spavaca sobe 2" },
+                    { 3L, 15, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(6062), "dugacak opis sobe 3", 30, 90, "Deluxe spavaca soba 3" },
+                    { 4L, 3, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(6066), "dugacak opis sobe 4", 9, 170, "Deluxe spavaca soba 4" }
                 });
 
             migrationBuilder.InsertData(
@@ -248,9 +281,9 @@ namespace BookingApp.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "Email", "Password", "UserName" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(7636), "admin@admin.com", "$%&/(=PŠČŽĐ?)(=?)=(T%RWSR", "Admin" },
-                    { 2L, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(8404), "biggie@smalls.com", "%EEASTZFGOJOBVTZE%$#&/=(", "Biggie" },
-                    { 3L, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(8444), "brk@os.com", "E$%#&/%&)=OHFD%/ER()/())PN", "BrankoKos" }
+                    { 2L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(8148), "biggie@smalls.com", "%EEASTZFGOJOBVTZE%$#&/=(", "Biggie" },
+                    { 1L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(7705), "admin@admin.com", "$%&/(=PŠČŽĐ?)(=?)=(T%RWSR", "Admin" },
+                    { 3L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(8171), "brk@os.com", "E$%#&/%&)=OHFD%/ER()/())PN", "BrankoKos" }
                 });
 
             migrationBuilder.InsertData(
@@ -258,65 +291,75 @@ namespace BookingApp.Data.Migrations
                 columns: new[] { "Id", "Address", "City", "CreatedAt", "FirstName", "LastName", "MobileNumber", "Sex", "State", "UserId" },
                 values: new object[,]
                 {
-                    { 1L, "Adresa 123", "Zagreb", new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(179), "Pero", "Perić", "+123456789", "M", "Hrvatska", 1L },
-                    { 2L, "Adresa 987", "Imotski", new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(2027), "Ante", "Antić", "+987654321", "M", "Hrvatska", 2L },
-                    { 3L, "BTMW 23", "Los Angeles", new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(2104), "Chris", "Brown", "+12361234", "Ž", "USA", 3L }
+                    { 3L, "BTMW 23", "Los Angeles", new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(6267), "Chris", "Brown", "+12361234", "Ž", "USA", 3L },
+                    { 1L, "Adresa 123", "Zagreb", new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(5170), "Pero", "Perić", "+123456789", "M", "Hrvatska", 1L },
+                    { 2L, "Adresa 987", "Imotski", new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(6221), "Ante", "Antić", "+987654321", "M", "Hrvatska", 2L }
                 });
 
             migrationBuilder.InsertData(
-                table: "RoomTypes",
-                columns: new[] { "Id", "BedCount", "CreatedAt", "Description", "PersonCount", "RoomServiceId", "Surface", "Type" },
+                table: "RoomServiceTypes",
+                columns: new[] { "Id", "CreatedAt", "RoomServiceId", "RoomTypeId" },
                 values: new object[,]
                 {
-                    { 1L, 3, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(3856), "dugacak opis sobe", 6, 1L, 58, "Deluxe spavaca sobe" },
-                    { 2L, 1, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(5283), "dugacak opis sobe 2", 2, 1L, 30, "Basic spavaca sobe" },
-                    { 3L, 1, new DateTime(2020, 8, 10, 9, 59, 59, 351, DateTimeKind.Local).AddTicks(5351), "dugacak opis sobe 3", 3, 1L, 70, "Deluxe spavaca soba" }
+                    { 17L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2207), 3L, 4L },
+                    { 15L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2204), 3L, 4L },
+                    { 10L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2191), 2L, 4L },
+                    { 6L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2179), 1L, 4L },
+                    { 5L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2176), 1L, 4L },
+                    { 4L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2172), 1L, 4L },
+                    { 16L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2216), 4L, 3L },
+                    { 14L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2201), 3L, 3L },
+                    { 9L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2188), 2L, 3L },
+                    { 3L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2169), 1L, 3L },
+                    { 11L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2213), 4L, 2L },
+                    { 13L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2198), 3L, 2L },
+                    { 8L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2185), 2L, 2L },
+                    { 2L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2150), 1L, 2L },
+                    { 18L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2210), 4L, 1L },
+                    { 12L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2194), 3L, 1L },
+                    { 7L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(2182), 2L, 1L },
+                    { 1L, new DateTime(2020, 8, 12, 13, 33, 42, 112, DateTimeKind.Local).AddTicks(1802), 1L, 1L }
                 });
 
             migrationBuilder.InsertData(
                 table: "Rooms",
                 columns: new[] { "Id", "CreatedAt", "Price", "RoomTypeId" },
-                values: new object[] { 1L, new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(7489), 123.40000000000001, 1L });
-
-            migrationBuilder.InsertData(
-                table: "Rooms",
-                columns: new[] { "Id", "CreatedAt", "Price", "RoomTypeId" },
-                values: new object[] { 2L, new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(8064), 134.69999999999999, 2L });
-
-            migrationBuilder.InsertData(
-                table: "Rooms",
-                columns: new[] { "Id", "CreatedAt", "Price", "RoomTypeId" },
-                values: new object[] { 3L, new DateTime(2020, 8, 10, 9, 59, 59, 350, DateTimeKind.Local).AddTicks(8109), 23.800000000000001, 3L });
+                values: new object[,]
+                {
+                    { 2L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(312), 134.69999999999999, 2L },
+                    { 3L, new DateTime(2020, 8, 12, 13, 33, 42, 111, DateTimeKind.Local).AddTicks(347), 23.800000000000001, 3L },
+                    { 1L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(9920), 123.40000000000001, 1L }
+                });
 
             migrationBuilder.InsertData(
                 table: "Bookings",
                 columns: new[] { "Id", "BeginningDate", "BookingStatusId", "CreatedAt", "EndingDate", "GuestId", "RoomId" },
-                values: new object[] { 1L, new DateTime(2005, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1L, new DateTime(2020, 8, 10, 9, 59, 59, 349, DateTimeKind.Local).AddTicks(2295), new DateTime(2005, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1L, 1L });
+                values: new object[] { 1L, new DateTime(2005, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1L, new DateTime(2020, 8, 12, 13, 33, 42, 109, DateTimeKind.Local).AddTicks(9863), new DateTime(2005, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1L, 1L });
 
             migrationBuilder.InsertData(
                 table: "Bookings",
                 columns: new[] { "Id", "BeginningDate", "BookingStatusId", "CreatedAt", "EndingDate", "GuestId", "RoomId" },
-                values: new object[] { 3L, new DateTime(2020, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 2L, new DateTime(2020, 8, 10, 9, 59, 59, 349, DateTimeKind.Local).AddTicks(3962), new DateTime(2023, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1L, 1L });
+                values: new object[] { 3L, new DateTime(2020, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 2L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(703), new DateTime(2023, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 1L, 1L });
 
             migrationBuilder.InsertData(
                 table: "Bookings",
                 columns: new[] { "Id", "BeginningDate", "BookingStatusId", "CreatedAt", "EndingDate", "GuestId", "RoomId" },
-                values: new object[] { 2L, new DateTime(2005, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 2L, new DateTime(2020, 8, 10, 9, 59, 59, 349, DateTimeKind.Local).AddTicks(3896), new DateTime(2005, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2L, 2L });
+                values: new object[] { 2L, new DateTime(2005, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 2L, new DateTime(2020, 8, 12, 13, 33, 42, 110, DateTimeKind.Local).AddTicks(661), new DateTime(2005, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 2L, 2L });
 
             migrationBuilder.InsertData(
                 table: "Bills",
                 columns: new[] { "Id", "Amount", "BookingId", "CreatedAt", "InvoiceDate", "InvoiceDueDate", "InvoiceNum", "PaymentId", "SalePoint", "Status" },
-                values: new object[] { 1L, 234.0, 1L, new DateTime(2020, 8, 10, 9, 59, 59, 344, DateTimeKind.Local).AddTicks(9067), new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "1/27/123", 1L, 12L, true });
+                values: new object[] { 1L, 234.0, 1L, new DateTime(2020, 8, 12, 13, 33, 42, 107, DateTimeKind.Local).AddTicks(4772), new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "1/27/123", 1L, 12L, true });
 
             migrationBuilder.InsertData(
                 table: "Bills",
                 columns: new[] { "Id", "Amount", "BookingId", "CreatedAt", "InvoiceDate", "InvoiceDueDate", "InvoiceNum", "PaymentId", "SalePoint", "Status" },
-                values: new object[] { 3L, 19834.0, 1L, new DateTime(2020, 8, 10, 9, 59, 59, 347, DateTimeKind.Local).AddTicks(9383), new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "2/5/987", 2L, 5L, true });
+                values: new object[] { 3L, 19834.0, 1L, new DateTime(2020, 8, 12, 13, 33, 42, 109, DateTimeKind.Local).AddTicks(649), new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "2/5/987", 2L, 5L, true });
 
             migrationBuilder.InsertData(
                 table: "Bills",
                 columns: new[] { "Id", "Amount", "BookingId", "CreatedAt", "InvoiceDate", "InvoiceDueDate", "InvoiceNum", "PaymentId", "SalePoint", "Status" },
-                values: new object[] { 2L, 987.0, 2L, new DateTime(2020, 8, 10, 9, 59, 59, 347, DateTimeKind.Local).AddTicks(9278), new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "1/27/987", 2L, 1L, false });
+                values: new object[] { 2L, 987.0, 2L, new DateTime(2020, 8, 12, 13, 33, 42, 109, DateTimeKind.Local).AddTicks(576), new DateTime(2005, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2005, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "1/27/987", 2L, 1L, false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bills_BookingId",
@@ -354,9 +397,14 @@ namespace BookingApp.Data.Migrations
                 column: "RoomTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RoomTypes_RoomServiceId",
-                table: "RoomTypes",
+                name: "IX_RoomServiceTypes_RoomServiceId",
+                table: "RoomServiceTypes",
                 column: "RoomServiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RoomServiceTypes_RoomTypeId",
+                table: "RoomServiceTypes",
+                column: "RoomTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -365,10 +413,16 @@ namespace BookingApp.Data.Migrations
                 name: "Bills");
 
             migrationBuilder.DropTable(
+                name: "RoomServiceTypes");
+
+            migrationBuilder.DropTable(
                 name: "Bookings");
 
             migrationBuilder.DropTable(
                 name: "Payments");
+
+            migrationBuilder.DropTable(
+                name: "RoomServices");
 
             migrationBuilder.DropTable(
                 name: "BookingStatuses");
@@ -384,9 +438,6 @@ namespace BookingApp.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "RoomTypes");
-
-            migrationBuilder.DropTable(
-                name: "RoomServices");
         }
     }
 }

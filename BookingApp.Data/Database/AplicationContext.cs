@@ -19,6 +19,7 @@ namespace BookingApp.Data.Database
         public DbSet<BookingStatus> BookingStatuses { get; set; }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<RoomServiceType> RoomServiceTypes {get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +32,7 @@ namespace BookingApp.Data.Database
             modelBuilder.SeedRoomService();
             modelBuilder.SeedRoomType();
             modelBuilder.SeedUser();
+            modelBuilder.SeedRoomServiceType();
         }
     }
 }

@@ -14,6 +14,6 @@ namespace BookingApp.Data.Entities
         [Required]
         public double Price { get; set; }
 
-        public ICollection<RoomType> RoomTypes {get;set;} 
+        public ICollection<RoomServiceType> RoomServiceTypes { get; set; }
     }
 }

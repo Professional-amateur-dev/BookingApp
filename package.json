@@ -1,7 +1,6 @@
 {
   "name": "package",
   "version": "0.0.1",
-
   "scripts": {
     "start": "npm-run-all --parallel api:start web:start",
     "init": "npm-run-all --sequential remove:migration database:drop make:migration database:update start",
@@ -10,7 +9,7 @@
     "commit": "git commit -m Fix_Bugs",
     "push": "git push origin master",
     "hibernate": "shutdown /h",
-    "sleep":"npm-run-all --sequential git hibernate",
+    "sleep": "npm-run-all --sequential git hibernate",
     "api:install": "cd BookingApp.Api && dotnet restore && cd ..",
     "api:build": "dotnet build BookingApp.Api/BookingApp.Api.csproj",
     "api:start": "dotnet run -p BookingApp.Api/BookingApp.Api.csproj",
@@ -24,6 +23,7 @@
     "database:drop": "dotnet ef --startup-project BookingApp.Api database drop --project BookingApp.Data"
   },
   "dependencies": {
+    "ngx-bootstrap": "^5.6.1",
     "npm-run-all": "^4.1.5"
   }
 }

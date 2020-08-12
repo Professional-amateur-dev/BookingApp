@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatCardModule} from '@angular/material/card';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatCardModule} from '@angular/material/card';
     NgbModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    CarouselModule
   ],
   exports: [
     FlexLayoutModule

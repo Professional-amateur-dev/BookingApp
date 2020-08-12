@@ -8,3 +8,8 @@ body { margin: 0; font-family: "Freight Big Light", "Helvetica Neue", sans-serif
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import '~ngx-toastr/toastr';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~ngx-toastr/toastr-bs4-alert';

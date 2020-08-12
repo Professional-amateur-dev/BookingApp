@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-service-form',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceFormComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
+
 
 }

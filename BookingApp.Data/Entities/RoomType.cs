@@ -18,10 +18,7 @@ namespace BookingApp.Data.Entities
         [Required]
         public int Surface { get; set; }
 
-        public RoomService RoomService { get; set; }
-        public long RoomServiceId { get; set; }
-        
-        //public ICollection<RoomService> RoomServices {get;set;} 
+        public ICollection<RoomServiceType> RoomServiceTypes { get; set; }
         public ICollection<Room> Rooms{get;set;}
     
     }

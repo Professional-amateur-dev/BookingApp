@@ -11,32 +11,38 @@ namespace BookingApp.Data.Seeds
                 new RoomType
                 {
                     Id = 1,
-                    Type = "Deluxe spavaca sobe",
+                    Type = "Deluxe spavaca sobe 1",
                     Description = "dugacak opis sobe",
                     BedCount = 3,
                     PersonCount = 6,
-                    Surface = 58,
-                    RoomServiceId = 1
+                    Surface = 58
                 },
                 new RoomType
                 {
                     Id = 2,
-                    Type = "Basic spavaca sobe",
+                    Type = "Basic spavaca sobe 2",
                     Description = "dugacak opis sobe 2",
                     BedCount = 1,
                     PersonCount = 2,
-                    Surface = 30,
-                    RoomServiceId = 1
+                    Surface = 30
                 },
                 new RoomType
                 {
                     Id = 3,
-                    Type = "Deluxe spavaca soba",
+                    Type = "Deluxe spavaca soba 3",
                     Description = "dugacak opis sobe 3",
-                    BedCount = 1,
-                    PersonCount = 3,
-                    Surface = 70,
-                    RoomServiceId = 1
+                    BedCount = 15,
+                    PersonCount = 30,
+                    Surface = 90
+                },
+                new RoomType
+                {
+                    Id = 4,
+                    Type = "Deluxe spavaca soba 4",
+                    Description = "dugacak opis sobe 4",
+                    BedCount = 3,
+                    PersonCount = 9,
+                    Surface = 170
                 }
             );
         }

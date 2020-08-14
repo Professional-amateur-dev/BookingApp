@@ -4,12 +4,10 @@ using BookingApp.Data.Entities;
 
 namespace BookingApp.Data.Models
 {
-    public class RoomServiceTypeDTO : BaseEntity
+    public class RoomServiceTypeDTO
     {
-        public long RoomServiceId { get; set; }
         //stavimo isti naziv kao i prije, ne zovemo ga kao dto, onda ga automapper moze prepoznat
         public RoomServiceDetail RoomService { get; set; }
-        public long RoomTypeId { get; set; }
     }
     
 }

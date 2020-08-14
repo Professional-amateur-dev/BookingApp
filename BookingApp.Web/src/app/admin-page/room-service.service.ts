@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { RoomService } from './roomService';
+import { RoomService } from '../shared/models/roomService';
 
 @Injectable({
   providedIn: 'root'

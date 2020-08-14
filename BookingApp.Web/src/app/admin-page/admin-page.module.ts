@@ -7,9 +7,10 @@ import { ServiceFormComponent } from './service-form/service-form.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RoomServiceFormComponent } from './room-service-form/room-service-form.component';
 
 @NgModule({
-  declarations: [ServiceFormComponent],
+  declarations: [ServiceFormComponent, RoomServiceFormComponent],
   imports: [
     RouterModule,
     CommonModule,

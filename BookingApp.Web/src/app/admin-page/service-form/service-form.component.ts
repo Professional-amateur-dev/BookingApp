@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { RoomService } from '../roomService';
+import { RoomService } from '../../shared/models/roomService';
 import { RoomServiceService } from '../room-service.service';
 import { Router } from '@angular/router';
 import { LoadingService } from '../../shared/loading/loading.service';
@@ -14,7 +14,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class ServiceFormComponent implements OnInit {
 
   roomService: RoomService = {} as RoomService;
-  modalRef: BsModalRef;
+  modalRef: BsModalRef = {} as BsModalRef;
 
   constructor(
     private modalService: BsModalService,
@@ -28,7 +28,7 @@ export class ServiceFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmitRoomService() {
     this.loadingService.show();
     this.roomServiceService
       .postRoomService(this.roomService)
@@ -39,8 +39,8 @@ export class ServiceFormComponent implements OnInit {
       });
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModal(form: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(form);
   }
 
 }

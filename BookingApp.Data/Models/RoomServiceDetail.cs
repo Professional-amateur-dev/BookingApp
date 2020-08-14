@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BookingApp.Data.Entities;
 
 namespace BookingApp.Data.Models

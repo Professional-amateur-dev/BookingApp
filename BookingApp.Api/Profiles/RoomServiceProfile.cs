@@ -12,7 +12,9 @@ namespace BookingApp.Data.Profiles
             CreateMap<RoomService, RoomServiceDetail>();
             CreateMap<RoomServiceCreate, RoomService>();
 
-            CreateMap<RoomServiceDetail, RoomService>()
+            /*CreateMap<RoomServiceDetail, RoomService>()
                 .ForMember(entity => entity.RoomServiceTypes, opt => opt.MapFrom(model => model))
-                .ReverseMap();
+                .ReverseMap();*/
         }
+    }
+}

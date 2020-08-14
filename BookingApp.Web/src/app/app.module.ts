@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminPageModule } from './admin-page/admin-page.module';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -41,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     AdminPageModule,
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   exports: [
     MatToolbarModule,

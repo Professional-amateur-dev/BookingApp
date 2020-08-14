@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BookingApp.Data.Entities;
 
 namespace BookingApp.Data.Models
@@ -9,7 +10,8 @@ namespace BookingApp.Data.Models
         public int BedCount { get; set; }
         public int PersonCount { get; set; }
         public int Surface { get; set; }
-        public RoomService RoomService { get; set; }
-        public long RoomServiceId { get; set; }
+        public ICollection<RoomServiceType> RoomServiceTypes { get; set; }
+        public ICollection<RoomService> RoomServices { get; set; }
+        
     }
 }

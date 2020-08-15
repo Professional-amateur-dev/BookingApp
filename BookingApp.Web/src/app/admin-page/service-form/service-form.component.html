@@ -1,4 +1,14 @@
 <div class="container">
-
-  <app-room-service-form></app-room-service-form>
+  <accordion [isAnimated]="true">
+    <accordion-group heading="Room  Service">
+      <p class="mx-2">Add, update or remove Room Services</p>
+      <app-room-service-form></app-room-service-form>
+    </accordion-group>
+    <accordion-group heading="Room Type">
+      <p>Room Type</p>
+    </accordion-group>
+    <accordion-group heading="Room Service -> Type">
+      <p>Connect Room Type with Room Service</p>
+    </accordion-group>
+  </accordion>
 </div>

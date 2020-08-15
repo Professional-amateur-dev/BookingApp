@@ -1,6 +1,7 @@
 <!--RoomService--------------------------------------------------------------------------------------------------------------------->
-  <!--Add Room Service-------------------------------------------------------------------------------------------------------------------------------->
-  <button type="button" class="btn btn-primary mx-auto" (click)="openModal(addRoomService)">Add Room Service</button>
+  
+<!--Add Room Service-------------------------------------------------------------------------------------------------------------------------------->
+  <button type="button" class="btn btn-primary mx-2 my-2" (click)="openModal(addRoomService)">Add Room Service</button>
  
     <ng-template #addRoomService>
       <div class="modal-header">
@@ -10,12 +11,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmitRoomService()">
+        <form (ngSubmit)="AddRoomService()">
           <input type="hidden" name="id" [(ngModel)]="roomService.id">
       
           <!-- name -->
           <div class="form-group">
-            <label for="name">Service</label>
+            <label for="name">Service name</label>
             <input
               type="text"
               name="name"
@@ -37,36 +38,49 @@
               placeholder="Unesite cijenu">
           </div>
 
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Add</button>
         </form>
       </div>
     </ng-template>
 
-    <!--Update Room Service-------------------------------------------------------------------------------------------------------------------------------->
-  <button type="button" class="btn btn-primary mx-auto " (click)="openModal(addRoomService)">Update Room Service</button>
+<!--Update Room Service-------------------------------------------------------------------------------------------------------------------------------->
+  <button type="button" class="btn btn-primary mx-2 my-2" (click)="openModal(updateRoomService)">Update Room Service</button>
  
-  <ng-template #addRoomService>
+  <ng-template #updateRoomService>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Add Room Service</h4>
+      <h4 class="modal-title pull-left">Update Room Service</h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <form (ngSubmit)="onSubmitRoomService()">
+      <form (ngSubmit)="UpdateRoomService()">
         <input type="hidden" name="id" [(ngModel)]="roomService.id">
     
+        <!-- id -->
+        <div class="form-group">
+          <label for="id">Select Room Service</label>
+          <select
+            class="custom-select mr-sm-2"
+            name="id"
+            [(ngModel)]="roomService.id"
+            placeholder="Odaberite uslugu"
+            id="id">
+              <option *ngFor="let r of roomServices" [value]="r.id">{{ r.name }}</option>
+          </select>
+        </div>
+
         <!-- name -->
         <div class="form-group">
-          <label for="name">Service</label>
-          <input
-            type="text"
-            name="name"
-            [(ngModel)]="roomService.name"
-            class="form-control"
-            id="name"
-            placeholder="Unesite uslugu">
-        </div>
+            <label for="name">Service name</label>
+            <input
+              type="text"
+              name="name"
+              [(ngModel)]="roomService.name"
+              class="form-control"
+              id="name"
+              placeholder="Unesite uslugu">
+          </div>
     
         <!-- price -->
         <div class="form-group">
@@ -80,7 +94,40 @@
             placeholder="Unesite cijenu">
         </div>
 
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+  </ng-template>
+
+
+  <!--Delete Room Service-------------------------------------------------------------------------------------------------------------------------------->
+  <button type="button" class="btn btn-primary mx-2 my-2 " (click)="openModal(deleteRoomService)">Delete Room Service</button>
+ 
+  <ng-template #deleteRoomService>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Delete Room Service</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="DeleteRoomService()">
+        <input type="hidden" name="id" [(ngModel)]="roomService.id">
+    
+        <!-- id -->
+        <div class="form-group">
+          <label for="id">Select Room Service</label>
+          <select
+            class="custom-select mr-sm-2"
+            name="id"
+            [(ngModel)]="roomService.id"
+            placeholder="Odaberite uslugu"
+            id="id">
+              <option *ngFor="let r of roomServices" [value]="r.id">{{ r.name }}</option>
+          </select>
+        </div>
+
+          <button type="submit" class="btn btn-primary">Delete</button>
       </form>
     </div>
   </ng-template>

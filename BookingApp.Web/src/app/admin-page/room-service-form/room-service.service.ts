@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import { RoomService } from '../shared/models/roomService';
+import { environment } from '../../../environments/environment';
+import { RoomService } from '../../shared/models/roomService';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,10 @@ export class RoomServiceService {
   constructor(
     private http: HttpClient
   ) { }
+
+  getRoomServices(params = {}) {
+    return this.http.get<RoomService[]>(environment.apiUrl + '/roomservices', { params });
+  }
 
   getRoomService(id: number) {
     return this.http.get<RoomService>(environment.apiUrl + '/roomservices/' + id);
@@ -24,4 +28,7 @@ export class RoomServiceService {
     return this.http.post<RoomService>(environment.apiUrl + '/roomservices', roomService);
   }
 
+  updateRoomService(roomService: RoomService, id:number) {
+    return this.http.put<RoomService>(environment.apiUrl + '/roomservices/' + id, roomService);
+  }
 }

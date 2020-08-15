@@ -8,6 +8,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RoomServiceFormComponent } from './room-service-form/room-service-form.component';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
   declarations: [ServiceFormComponent, RoomServiceFormComponent],
@@ -17,7 +18,8 @@ import { RoomServiceFormComponent } from './room-service-form/room-service-form.
     AdminPageRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AccordionModule.forRoot()
   ]
 })
 export class AdminPageModule { }

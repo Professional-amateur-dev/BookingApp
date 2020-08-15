@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { RoomService } from '../../shared/models/roomService';
-import { RoomServiceService } from '../room-service.service';
+import { RoomServiceService } from './room-service.service';
 import { Router } from '@angular/router';
 import { LoadingService } from '../../shared/loading/loading.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -15,8 +15,10 @@ export class RoomServiceFormComponent implements OnInit {
 
   roomService: RoomService = {} as RoomService;
   modalRef: BsModalRef = {} as BsModalRef;
+  roomServices?: RoomService[];
 
   constructor(
+    private roomServiceList : RoomServiceService,
     private modalService: BsModalService,
     private toastr: ToastrService,
     private roomServiceService: RoomServiceService,
@@ -25,18 +27,51 @@ export class RoomServiceFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadRoomServices();
   }
 
-  onSubmitRoomService() {
+  loadRoomServices(){
+    this.roomServiceList
+      .getRoomServices()
+      .subscribe(result => this.roomServices = result)
+  }
+
+  AddRoomService() {
     this.loadingService.show();
     this.roomServiceService
       .postRoomService(this.roomService)
       .subscribe(result => {
         this.loadingService.hide();
         this.modalRef.hide();
+        this.loadRoomServices();
         this.toastr.success('Success, RoomService Id: ' + result.id);
       });
   }
+
+  UpdateRoomService() {
+    this.loadingService.show();
+    this.roomServiceService
+      .updateRoomService(this.roomService, this.roomService.id)
+      .subscribe(result => {
+        this.loadingService.hide();
+        this.modalRef.hide();
+        this.loadRoomServices();
+        this.toastr.success('Success, RoomService Id: ' + result.id);
+      });
+  }
+
+  DeleteRoomService() {
+    this.loadingService.show();
+    this.roomServiceService
+      .deleteRoomService(this.roomService.id)
+      .subscribe(result => {
+        this.loadingService.hide();
+        this.modalRef.hide();
+        this.loadRoomServices();
+        this.toastr.success('Success, RoomService Id: ' + this.roomService.id);
+      });
+  }
+
 
   openModal(form: TemplateRef<any>) {
     this.modalRef = this.modalService.show(form);

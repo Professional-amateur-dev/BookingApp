@@ -1,0 +1,139 @@
+<!--RoomServiceType--------------------------------------------------------------------------------------------------------------------->
+  
+<!--Add Room Service Type-------------------------------------------------------------------------------------------------------------------------------->
+<button type="button" class="btn btn-primary mx-2 my-2" (click)="openModal(addRoomServiceType)">Add Room Service Type</button>
+ 
+<ng-template #addRoomServiceType>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add Room Service Type</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="AddRoomServiceType()">
+      <input type="hidden" name="id" [(ngModel)]="roomServiceType.id">
+  
+    <!-- id room service-->
+    <div class="form-group">
+      <label for="roomServiceId">Select Room Service</label>
+      <select
+        class="custom-select mr-sm-2"
+        name="roomServiceId"
+        [(ngModel)]="roomServiceType.roomServiceId"
+        placeholder="Odaberite sobu"
+        id="roomServiceId">
+          <option *ngFor="let r of roomServices" [value]="r.id">{{ r.name }}</option>
+      </select>
+    </div>
+
+    <!-- id room type-->
+    <div class="form-group">
+      <label for="roomTypeId">Select Room Type</label>
+      <select
+        class="custom-select mr-sm-2"
+        name="roomTypeId"
+        [(ngModel)]="roomServiceType.roomTypeId"
+        placeholder="Odaberite sobu"
+        id="roomTypeId">
+          <option *ngFor="let r of roomTypes" [value]="r.id">{{ r.type }}</option>
+      </select>
+    </div>
+  
+    
+
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+  </div>
+</ng-template>
+
+<!--Update Room Service Type-------------------------------------------------------------------------------------------------------------------------------->
+<button type="button" class="btn btn-primary mx-2 my-2" (click)="openModal(updateRoomServiceType)">Update Room Service Type</button>
+
+<ng-template #updateRoomServiceType>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Update Room Service Type</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="UpdateRoomServiceType()">
+    <input type="hidden" name="id" [(ngModel)]="roomServiceType.id">
+
+    <!-- id -->
+    <div class="form-group">
+      <label for="id">Select Room Service Type</label>
+      <select
+        class="custom-select mr-sm-2"
+        name="id"
+        [(ngModel)]="roomServiceType.id"
+        placeholder="Odaberite sobu"
+        id="id">
+          <option *ngFor="let r of roomServiceTypes" [value]="r.id">{{ r.id }}</option>
+      </select>
+    </div>
+
+      <!-- id room service-->
+      <div class="form-group">
+        <label for="roomServiceId">Select Room Service</label>
+        <select
+          class="custom-select mr-sm-2"
+          name="roomServiceId"
+          [(ngModel)]="roomServiceType.roomServiceId"
+          placeholder="Odaberite sobu"
+          id="roomServiceId">
+            <option *ngFor="let r of roomServices" [value]="r.id">{{ r.name }}</option>
+        </select>
+      </div>
+  
+      <!-- id room type-->
+      <div class="form-group">
+        <label for="roomTypeId">Select Room Type</label>
+        <select
+          class="custom-select mr-sm-2"
+          name="roomTypeId"
+          [(ngModel)]="roomServiceType.roomTypeId"
+          placeholder="Odaberite sobu"
+          id="roomTypeId">
+            <option *ngFor="let r of roomTypes" [value]="r.id">{{ r.type }}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
+</ng-template>
+
+
+<!--Delete Room Service Type-------------------------------------------------------------------------------------------------------------------------------->
+<button type="button" class="btn btn-primary mx-2 my-2 " (click)="openModal(deleteRoomServiceType)">Delete Room Service Type</button>
+
+<ng-template #deleteRoomServiceType>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Delete Room Service Type</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="DeleteRoomServiceType()">
+    <input type="hidden" name="id" [(ngModel)]="roomServiceType.id">
+
+    <!-- id -->
+    <div class="form-group">
+      <label for="id">Select Room Service Type</label>
+      <select
+        class="custom-select mr-sm-2"
+        name="id"
+        [(ngModel)]="roomServiceType.id"
+        placeholder="Odaberite sobu"
+        id="id">
+          <option *ngFor="let r of roomServiceTypes" [value]="r.id">{{ r.id }}</option>
+      </select>
+    </div>
+
+      <button type="submit" class="btn btn-primary">Delete</button>
+  </form>
+</div>
+</ng-template>

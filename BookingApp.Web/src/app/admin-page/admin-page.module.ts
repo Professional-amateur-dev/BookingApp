@@ -9,9 +9,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RoomServiceFormComponent } from './room-service-form/room-service-form.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { RoomTypeFormComponent } from './room-type-form/room-type-form.component';
+import { RoomServiceTypeFormComponent } from './room-service-type-form/room-service-type-form.component';
 
 @NgModule({
-  declarations: [ServiceFormComponent, RoomServiceFormComponent],
+  declarations: [ServiceFormComponent, RoomServiceFormComponent, RoomTypeFormComponent, RoomServiceTypeFormComponent],
   imports: [
     RouterModule,
     CommonModule,

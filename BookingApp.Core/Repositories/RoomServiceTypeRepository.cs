@@ -27,9 +27,18 @@ namespace BookingApp.Core.Repositories
                 .First<RoomServiceType>();
         }
 
-        public IEnumerable<RoomServiceType> GetAll(string a)
+        public IEnumerable<RoomServiceType> GetAll(string search)
         {
-            return this.context.RoomServiceTypes.ToList();
+            var query = this.context.RoomServiceTypes.AsQueryable();
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(
+                    p => p.RoomService.Name.Contains(search) ||
+                         p.RoomType.Type.Contains(search) ||
+                         p.RoomType.Description.Contains(search)
+                );
+            }
+            return query.ToList();
         }
 
         public bool Delete(long id)

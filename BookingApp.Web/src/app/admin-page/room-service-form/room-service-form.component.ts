@@ -13,11 +13,11 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class RoomServiceFormComponent implements OnInit {
 
-  roomService?: RoomService;
+  roomService: RoomService = {} as RoomService;
   modalRef: BsModalRef = {} as BsModalRef;
   roomServices?: RoomService[];
 
-  selectedRoomService?: number;
+  selectedRoomService: number = 0;
 
   constructor(
     private roomServiceList : RoomServiceService,
@@ -39,7 +39,7 @@ export class RoomServiceFormComponent implements OnInit {
   }
 
   onChange() {
-    this.roomService = this.roomServices?.find(service => service.id == this.selectedRoomService);
+    this.roomService = this.roomServices?.find(service => service.id == this.selectedRoomService) || ({} as RoomService);
   }
 
   AddRoomService() {

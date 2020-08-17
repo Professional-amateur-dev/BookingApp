@@ -61,9 +61,10 @@
         <div class="form-group">
           <label for="id">Select Room Service</label>
           <select
+            (change)="onChange()"
             class="custom-select mr-sm-2"
             name="id"
-            [(ngModel)]="roomService.id"
+            [(ngModel)]="selectedRoomService"
             placeholder="Odaberite uslugu"
             id="id">
               <option *ngFor="let r of roomServices" [value]="r.id">{{ r.name }}</option>

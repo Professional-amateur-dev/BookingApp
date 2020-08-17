@@ -42,6 +42,8 @@ namespace BookingApp.Core.Repositories
                 .Include(p => p.RoomService)
                 .Include(p => p.RoomType);
             }
+            query = query.Include(p => p.RoomService)
+                         .Include(p => p.RoomType);
             return query.ToList();
         }
 

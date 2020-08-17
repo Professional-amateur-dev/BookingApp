@@ -25,6 +25,7 @@ export class RoomServiceTypeFormComponent implements OnInit {
   roomTypes?: RoomType[];
   roomService: RoomService = {} as RoomService;
   roomServices?: RoomService[];
+  selectedRoomServiceType:number = 0;
 
   constructor(
     private roomServiceTypeList: RoomServiceTypeService,
@@ -33,8 +34,8 @@ export class RoomServiceTypeFormComponent implements OnInit {
     private roomServiceTypeService: RoomServiceTypeService,
     private loadingService: LoadingService,
 
-    private roomTypeList: RoomTypeService,
     private roomTypeService: RoomTypeService,
+    private roomTypeList: RoomTypeService,
     private roomServiceList : RoomServiceService,
     private roomServiceService: RoomServiceService,
     private router: Router
@@ -44,6 +45,12 @@ export class RoomServiceTypeFormComponent implements OnInit {
     this.loadRoomServiceTypes();
     this.loadRoomTypes();
     this.loadRoomServices();
+    
+  }
+
+  onChange() {
+    if(!this.roomServiceType) { return ;}
+    this.roomServiceType = this.roomServiceTypes?.find(room => room.id == this.selectedRoomServiceType) || ({} as RoomServiceType);
     
   }
 

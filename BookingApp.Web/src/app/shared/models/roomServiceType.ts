@@ -3,9 +3,9 @@ import { RoomType } from './roomType';
 
 export interface RoomServiceType {
     id:number;
-    RoomService:RoomService;
+    roomService:RoomService;
     roomServiceId: number;
-    RoomType:RoomType;
+    roomType:RoomType;
     roomTypeId: number;
 
 }

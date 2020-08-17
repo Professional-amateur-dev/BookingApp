@@ -57,7 +57,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
+<div class="modal-body" *ngIf="roomServiceType">
   <form (ngSubmit)="UpdateRoomServiceType()">
     <input type="hidden" name="id" [(ngModel)]="roomServiceType.id">
 
@@ -65,12 +65,13 @@
     <div class="form-group">
       <label for="id">Select Room Service Type</label>
       <select
-        class="custom-select mr-sm-2"
-        name="id"
-        [(ngModel)]="roomServiceType.id"
+      (change)="onChange()"
+      class="custom-select mr-sm-2"
+      name="id"
+      [(ngModel)]="selectedRoomServiceType"
         placeholder="Odaberite sobu"
         id="id">
-          <option *ngFor="let r of roomServiceTypes" [value]="r.id">Id: {{ r.id }} - {{r.RoomService.name}} = {{r.RoomType.type}}</option>
+          <option *ngFor="let r of roomServiceTypes" [value]="r.id">Id: {{ r.id }} -> {{r.roomService.name}} = {{r.roomType.type}}</option>
       </select>
     </div>
 
@@ -129,7 +130,7 @@
         [(ngModel)]="roomServiceType.id"
         placeholder="Odaberite sobu"
         id="id">
-          <option *ngFor="let r of roomServiceTypes" [value]="r.id">{{ r.id }}</option>
+          <option *ngFor="let r of roomServiceTypes" [value]="r.id">Id: {{ r.id }} -> {{r.roomService.name}} = {{r.roomType.type}}</option>
       </select>
     </div>
 

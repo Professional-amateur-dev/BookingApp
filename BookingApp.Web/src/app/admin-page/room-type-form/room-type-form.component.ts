@@ -16,6 +16,7 @@ export class RoomTypeFormComponent implements OnInit {
   roomType: RoomType = {} as RoomType;
   modalRef: BsModalRef = {} as BsModalRef;
   roomTypes?: RoomType[];
+  selectedRoomType?:number = 1;
 
   constructor(
     private roomTypeList: RoomTypeService,
@@ -27,6 +28,10 @@ export class RoomTypeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadRoomTypes();
+  }
+
+  onChange() {
+    this.roomType = this.roomTypes?.find(room => room.id == this.selectedRoomType);
   }
 
   loadRoomTypes() {

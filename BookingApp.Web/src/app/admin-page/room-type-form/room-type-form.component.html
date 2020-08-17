@@ -99,9 +99,10 @@
     <div class="form-group">
       <label for="id">Select Room Type</label>
       <select
-        class="custom-select mr-sm-2"
-        name="id"
-        [(ngModel)]="roomType.id"
+      (change)="onChange()"
+      class="custom-select mr-sm-2"
+      name="id"
+      [(ngModel)]="selectedRoomType"
         placeholder="Odaberite sobu"
         id="id">
           <option *ngFor="let r of roomTypes" [value]="r.id">{{ r.type }}</option>

@@ -24,6 +24,8 @@ namespace BookingApp.Core.Repositories
         {
             return this.context.RoomServiceTypes
                 .Where(p => p.Id == id)
+                .Include(p => p.RoomService)
+                .Include(p => p.RoomType)
                 .First<RoomServiceType>();
         }
 
@@ -36,7 +38,9 @@ namespace BookingApp.Core.Repositories
                     p => p.RoomService.Name.Contains(search) ||
                          p.RoomType.Type.Contains(search) ||
                          p.RoomType.Description.Contains(search)
-                );
+                )
+                .Include(p => p.RoomService)
+                .Include(p => p.RoomType);
             }
             return query.ToList();
         }

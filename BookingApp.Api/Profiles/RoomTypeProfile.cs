@@ -8,6 +8,8 @@ namespace BookingApp.Data.Profiles {
         public RoomTypeProfile () {
             CreateMap<RoomType, RoomTypeDetail> ();            
             CreateMap<RoomTypeCreate, RoomType> ();
+            CreateMap<RoomType, RoomTypeMinimal> ().ReverseMap();
+            CreateMap<RoomTypeDetail, RoomTypeMinimal> ().ReverseMap();
         }
     }
 }

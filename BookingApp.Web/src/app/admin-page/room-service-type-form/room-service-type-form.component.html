@@ -70,7 +70,7 @@
         [(ngModel)]="roomServiceType.id"
         placeholder="Odaberite sobu"
         id="id">
-          <option *ngFor="let r of roomServiceTypes" [value]="r.id">{{ r.id }}</option>
+          <option *ngFor="let r of roomServiceTypes" [value]="r.id">Id: {{ r.id }} - {{r.RoomService.name}} = {{r.RoomType.type}}</option>
       </select>
     </div>
 

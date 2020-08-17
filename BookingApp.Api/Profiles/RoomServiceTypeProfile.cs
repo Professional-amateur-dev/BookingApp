@@ -9,7 +9,7 @@ namespace BookingApp.Api.Profiles
         public RoomServiceTypeProfile()
         {
             CreateMap<RoomServiceType, RoomServiceTypeDTO>().ReverseMap();
-            CreateMap<RoomServiceType, RoomServiceTypeDetail>();
+            CreateMap<RoomServiceType, RoomServiceTypeDetail>().ReverseMap();
             CreateMap<RoomServiceTypeCreate, RoomServiceType>();
         }
     }

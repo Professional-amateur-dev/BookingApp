@@ -10,6 +10,7 @@ namespace BookingApp.Api.Extensions
         public static void RegisterScopedServices(this IServiceCollection services)
         {
             services.AddScoped<IRoomServiceRepository, RoomServiceRepository>();
+            services.AddScoped<IRoomServiceTypeRepository, RoomServiceTypeRepository>();
             services.AddScoped<IRoomTypeRepository, RoomTypeRepository>();
             services.AddScoped<IRoomRepository, RoomRepository>();
             services.AddScoped<IBookingRepository,BookingRepository>();

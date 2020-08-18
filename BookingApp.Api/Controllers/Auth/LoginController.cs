@@ -23,10 +23,11 @@ namespace BookingApp.Api.Controllers.Auth
         }
 
         [HttpPost]
-        public ActionResult<string> Login(LoginRequest request)
+        public ActionResult<LoginResponse> Login([FromBody] LoginRequest request)
         {
+
             var token = this.authService.Login(request.Email, request.Password);
-            return token;
+            return new LoginResponse(null, token);
         }
     }
 }

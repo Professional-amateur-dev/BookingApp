@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
- 
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-sidenav-list',
   templateUrl: './sidenav-list.component.html',
@@ -7,14 +9,25 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SidenavListComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
+  
  
-  constructor() { }
+  constructor(
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
  
   ngOnInit() {
   }
  
   public onSidenavClose = () => {
     this.sidenavClose.emit();
+  }
+
+  onLogout() {
+    localStorage.clear();
+    this.router.navigate(['auth/login']);
+    setTimeout(() => { window.location.reload(); }, 100);
+    this.toastr.success('You Have been logged out');
   }
  
 }

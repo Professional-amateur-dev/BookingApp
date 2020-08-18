@@ -18,6 +18,8 @@ import { AdminPageModule } from './admin-page/admin-page.module';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AuthModule } from './auth/auth.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 
 
@@ -43,7 +45,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AdminPageModule,
     ToastrModule.forRoot(),
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AuthModule,
+    FontAwesomeModule
   ],
   exports: [
     MatToolbarModule,

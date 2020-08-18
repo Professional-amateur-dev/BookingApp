@@ -17,4 +17,10 @@
     <a mat-list-item [routerLink]="['admin']" routerLinkActive="active" (click)="onSidenavClose()" class="link">
         <mat-icon class="icon">security</mat-icon><span class="text">Admin</span>
     </a>
+    <a mat-list-item [routerLink]="['login']" routerLinkActive="active" (click)="onSidenavClose()" class="link">
+        <mat-icon class="icon">person_outline</mat-icon><span class="text">Login</span>
+    </a>
+    <a mat-list-item [routerLink]="['login']" routerLinkActive="active" (click)="onLogout()" class="link">
+        <mat-icon class="icon">login</mat-icon><span class="text">Logout</span>
+    </a>
   </mat-nav-list>

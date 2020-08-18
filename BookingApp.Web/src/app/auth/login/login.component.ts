@@ -31,8 +31,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.vm)
       .subscribe(result => {
         this.tokenService.setToken(result.token);
-        this.router.navigate(['']);
-        // this.tokenService.setUser(result.user);
+        //this.router.navigate(['']);
+        //this.tokenService.setUser(result.user);
+        this.toastr.success('Uspješan login!');
       }, _ => {
         this.vm.password = '';
         this.toastr.error('Kriva kombinacija emaila/lozinke.');

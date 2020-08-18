@@ -26,7 +26,7 @@ export class SidenavListComponent implements OnInit {
   onLogout() {
     localStorage.clear();
     this.router.navigate(['login']);
-    setTimeout(() => { window.location.reload(); }, 100);
+    //setTimeout(() => { window.location.reload(); }, 100);
     this.toastr.success('You Have been logged out');
   }
  

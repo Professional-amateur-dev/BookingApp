@@ -19,7 +19,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AuthModule } from './auth/auth.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RoomPageModule } from './room-page/room-page.module'
 
 
 
@@ -47,7 +48,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     FormsModule,
     ModalModule.forRoot(),
     AuthModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RoomPageModule
   ],
   exports: [
     MatToolbarModule,

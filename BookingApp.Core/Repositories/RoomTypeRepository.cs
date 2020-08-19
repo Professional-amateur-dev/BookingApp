@@ -12,10 +12,17 @@ namespace BookingApp.Core.Repositories
     public interface IRoomTypeRepository : IRepository<RoomType>
     {
         RoomType Patch(long id, JsonPatchDocument<RoomType> doc);
+
+        List<RoomType> GetPaginatedRoomTypes(int page = 1, string? search = null, string? sort = null);
+
+        int PerPage { get; set; }
+
+        int Count(string search);
     }
     public class RoomTypeRepository : IRoomTypeRepository
     {
         private readonly AplicationContext context;
+        public int PerPage { get; set; } = 2;
 
         public RoomTypeRepository(AplicationContext context) => this.context = context;
 
@@ -71,6 +78,38 @@ namespace BookingApp.Core.Repositories
             doc.ApplyTo(RoomType);
             this.context.SaveChanges();
             return RoomType;
+        }
+
+        public List<RoomType> GetPaginatedRoomTypes(int page, string search, string sort)
+        {
+            var query = this.context.RoomTypes.AsQueryable();
+
+            if(!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(p => p.Type.Contains(search) || p.Description.Contains(search));
+            }
+
+            if (!string.IsNullOrEmpty(sort))
+            {
+                string[] elements = sort.Split(":"); // 0 => title, 1 => asc
+                /* TODO: implement dynamic sort */
+                query = query.OrderByDescending(p => p.Type);
+            }
+
+            return query.Skip((page - 1) * this.PerPage)
+                .Take(this.PerPage)
+                .ToList();
+        }
+
+        public int Count(string search)
+        {
+            var query = this.context.RoomTypes.AsQueryable();
+            if(!string.IsNullOrEmpty(search))
+            {
+                return query.Count(p => p.Type.Contains(search) || p.Description.Contains(search));
+            }
+
+            return query.Count();
         }
 
     }

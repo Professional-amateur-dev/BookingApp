@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { RoomType } from '../../shared/models/roomType';
+import { RoomTypeListResponse } from 'src/app/room-page/room-list/room-list.response';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class RoomTypeService {
   ) { }
 
   getRoomTypes(params = {}) {
-    return this.http.get<RoomType[]>(environment.apiUrl + '/roomtypes', { params });
+    // GET req na localhost:5001/api/protests?search=abc
+    return this.http.get<RoomTypeListResponse>(environment.apiUrl + '/roomtypes', { params });
   }
 
   getRoomType(id: number) {

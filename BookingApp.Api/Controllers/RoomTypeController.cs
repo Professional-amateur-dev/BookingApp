@@ -9,6 +9,9 @@ using BookingApp.Core.Repositories;
 using BookingApp.Data.Entities;
 using BookingApp.Data.Models;
 using Microsoft.AspNetCore.JsonPatch;
+using BookingApp.Api.Responses;
+using BookingApp.Api.Requests;
+using RoomTypes.Api.Services;
 
 namespace BookingApp.Api.Controllers
 {
@@ -17,23 +20,26 @@ namespace BookingApp.Api.Controllers
     {
 
         private readonly IRoomTypeRepository RoomTypeRepository;
+        
+        private readonly IRoomTypeService roomTypeService;
         private readonly IMapper mapper;
 
         public RoomTypeController(
+            IRoomTypeService roomTypeService,
             IRoomTypeRepository RoomTypeRepository,
             IMapper mapper
         )
         {
             this.RoomTypeRepository = RoomTypeRepository;
             this.mapper = mapper;
+            this.roomTypeService = roomTypeService;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<RoomTypeDetail>> GetAll([FromQuery] string search)
+        public ActionResult<RoomTypePaginatedResponse> GetAll([FromQuery] PaginatedRoomTypeRequest request)
         {
-            var RoomTypes = this.RoomTypeRepository.GetAll(search);
-            var RoomTypes2 = this.mapper.Map<IEnumerable<RoomTypeDetail>>(RoomTypes);
-            return Ok(RoomTypes2);
+            var rt = this.roomTypeService.GetPaginatedResponse(request);
+            return Ok(rt);
         }
 
         [HttpGet("{id}")]

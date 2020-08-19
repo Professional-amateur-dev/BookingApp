@@ -2,7 +2,7 @@
     <a mat-list-item [routerLink]="['home']" routerLinkActive="active" (click)="onSidenavClose()" class="link">
         <mat-icon class="icon">home</mat-icon> <span class="text">Home</span>
     </a>
-    <a mat-list-item routerLink="/home" (click)="onSidenavClose()" class="link">
+    <a mat-list-item [routerLink]="['rooms&suites']" (click)="onSidenavClose()" class="link">
         <mat-icon class="icon">king_bed_outline</mat-icon> <span class="text">Rooms & Suites</span>   
     </a>
     <a mat-list-item routerLink="#" (click)="onSidenavClose()" class="link">

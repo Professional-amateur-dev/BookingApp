@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using BookingApp.Core.Repositories;
 using BookingApp.Api.Services;
-
+using RoomTypes.Api.Services;
 
 namespace BookingApp.Api.Extensions
 {
@@ -19,6 +19,7 @@ namespace BookingApp.Api.Extensions
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IBookingStatusRepository, BookingStatusRepository>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IRoomTypeService, RoomTypeService>();
         }
     }
 }
